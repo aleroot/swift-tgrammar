@@ -1,0 +1,3015 @@
+{
+  "revision": "ca1acf28bf35b9ba9092800b69aebc7d4ce1f7a7",
+  "cases": [
+    {
+      "id": "test_non_strict[0][0]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"integer\"},{\"type\":\"integer\"}]}",
+      "input": "[1, 2]",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[0][1]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"integer\"},{\"type\":\"integer\"}]}",
+      "input": "[1, 2, 3]",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[0][2]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"integer\"},{\"type\":\"integer\"}]}",
+      "input": "[1, 2, 3, \"123\"]",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[0][3]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"integer\"},{\"type\":\"integer\"}]}",
+      "input": "[1]",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[0][4]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"integer\"},{\"type\":\"integer\"}]}",
+      "input": "[]",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[1][0]",
+      "schema": "{\"type\":\"object\",\"properties\":{\"foo\":{\"type\":\"integer\"},\"bar\":{\"type\":\"integer\"}},\"required\":[\"foo\",\"bar\"]}",
+      "input": "{\"foo\": 1, \"bar\": 2}",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[1][1]",
+      "schema": "{\"type\":\"object\",\"properties\":{\"foo\":{\"type\":\"integer\"},\"bar\":{\"type\":\"integer\"}},\"required\":[\"foo\",\"bar\"]}",
+      "input": "{\"foo\": 1, \"bar\": 2, \"baz\": 3}",
+      "accepted": true,
+      "strict": false
+    },
+    {
+      "id": "test_non_strict[1][2]",
+      "schema": "{\"type\":\"object\",\"properties\":{\"foo\":{\"type\":\"integer\"},\"bar\":{\"type\":\"integer\"}},\"required\":[\"foo\",\"bar\"]}",
+      "input": "{\"foo\": 1}",
+      "accepted": false,
+      "strict": false
+    },
+    {
+      "id": "test_numeric_const_enum_literals[0][0]",
+      "schema": "{\"const\":19.99}",
+      "input": "19.99",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[0][1]",
+      "schema": "{\"const\":19.99}",
+      "input": "19.989999999999998",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[1][0]",
+      "schema": "{\"enum\":[19.99,0.1]}",
+      "input": "0.1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[1][1]",
+      "schema": "{\"enum\":[19.99,0.1]}",
+      "input": "0.10000000000000001",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[2][0]",
+      "schema": "{\"const\":{\"price\":19.99}}",
+      "input": "{\"price\":19.99}",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[2][1]",
+      "schema": "{\"const\":{\"price\":19.99}}",
+      "input": "{\"price\":19.989999999999998}",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[3][0]",
+      "schema": "{\"const\":100000.0}",
+      "input": "100000",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[3][1]",
+      "schema": "{\"const\":100000.0}",
+      "input": "1e+05",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[4][0]",
+      "schema": "{\"const\":0.0001}",
+      "input": "0.0001",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_numeric_const_enum_literals[4][1]",
+      "schema": "{\"const\":0.0001}",
+      "input": "1e-04",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[0][0]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":2}",
+      "input": "2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[0][1]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":2}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[0][2]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":2}",
+      "input": "-4",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[0][3]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":2}",
+      "input": "3",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[0][4]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":2}",
+      "input": "-3",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[1][0]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[1][1]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1}",
+      "input": "1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[1][2]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1}",
+      "input": "-1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[1][3]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1}",
+      "input": "123456",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[1][4]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1}",
+      "input": "-123456",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][0]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][1]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "7",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][2]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "14",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][3]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "49",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][4]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "-14",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][5]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "-21",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][6]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "8",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[2][7]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":7}",
+      "input": "-20",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[3][0]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1024}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[3][1]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1024}",
+      "input": "1024",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[3][2]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1024}",
+      "input": "2048",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[3][3]",
+      "schema": "{\"type\":\"integer\",\"multipleOf\":1024}",
+      "input": "1000",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[4][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":10,\"multipleOf\":3}",
+      "input": "6",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[4][1]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":10,\"multipleOf\":3}",
+      "input": "9",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[4][2]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":10,\"multipleOf\":3}",
+      "input": "5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[4][3]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":10,\"multipleOf\":3}",
+      "input": "7",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[5][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":10,\"exclusiveMinimum\":3,\"maximum\":20,\"multipleOf\":5}",
+      "input": "10",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[5][1]",
+      "schema": "{\"type\":\"integer\",\"minimum\":10,\"exclusiveMinimum\":3,\"maximum\":20,\"multipleOf\":5}",
+      "input": "15",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[5][2]",
+      "schema": "{\"type\":\"integer\",\"minimum\":10,\"exclusiveMinimum\":3,\"maximum\":20,\"multipleOf\":5}",
+      "input": "20",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[5][3]",
+      "schema": "{\"type\":\"integer\",\"minimum\":10,\"exclusiveMinimum\":3,\"maximum\":20,\"multipleOf\":5}",
+      "input": "5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_multiple_of[5][4]",
+      "schema": "{\"type\":\"integer\",\"minimum\":10,\"exclusiveMinimum\":3,\"maximum\":20,\"multipleOf\":5}",
+      "input": "6",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[0][0]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]}}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, {\"name\": \"Jane\", \"age\": 25}]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[0][1]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]}}",
+      "input": "[{\"name\": \"John\"}]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][0]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, 42, \"test\"]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][1]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, 42]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][2]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[{\"name\": \"John\", \"age\": 30}]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][3]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][4]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, \"test\", 42]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[1][5]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"},{\"type\":\"string\"}],\"additionalItems\":false}",
+      "input": "[{\"name\": \"John\"}, 42, \"test\"]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[2][0]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"}],\"unevaluatedItems\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, 42, {\"name\": \"Jane\"}]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[2][1]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"}],\"unevaluatedItems\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, 42]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[2][2]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"}],\"unevaluatedItems\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, 42, 123]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema[2][3]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"},\"age\":{\"type\":\"integer\"}},\"required\":[\"name\",\"age\"]},{\"type\":\"integer\"}],\"unevaluatedItems\":{\"type\":\"object\",\"properties\":{\"name\":{\"type\":\"string\"}},\"required\":[\"name\"]}}",
+      "input": "[{\"name\": \"John\", \"age\": 30}, {\"name\": \"Jane\"}]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[0][0]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[]}",
+      "input": "[]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[0][1]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[]}",
+      "input": "[1]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[0][2]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[]}",
+      "input": "[1, 2]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[1][0]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":0}",
+      "input": "[]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[1][1]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":0}",
+      "input": "[1]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[1][2]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":0}",
+      "input": "[1, 2]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[2][0]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":2}",
+      "input": "[]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[2][1]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":2}",
+      "input": "[1]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[2][2]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":2}",
+      "input": "[1, 2]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[2][3]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":0,\"maxItems\":2}",
+      "input": "[1, 2, 3]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[3][0]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":2,\"maxItems\":3}",
+      "input": "[]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[3][1]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":2,\"maxItems\":3}",
+      "input": "[1]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[3][2]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":2,\"maxItems\":3}",
+      "input": "[1, 2]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[3][3]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":2,\"maxItems\":3}",
+      "input": "[1, 2, 3]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[3][4]",
+      "schema": "{\"type\":\"array\",\"items\":{\"type\":\"integer\"},\"minItems\":2,\"maxItems\":3}",
+      "input": "[1, 2, 3, 4]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[4][0]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}]}",
+      "input": "[\"foo\", 42]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[4][1]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}]}",
+      "input": "[\"foo\"]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[4][2]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}]}",
+      "input": "[]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[4][3]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}]}",
+      "input": "[\"foo\", 42, \"bar\"]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[4][4]",
+      "schema": "{\"type\":\"array\",\"items\":false,\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}]}",
+      "input": "[42, \"foo\"]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[5][0]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3,\"maxItems\":4}",
+      "input": "[\"foo\", 42, true]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[5][1]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3,\"maxItems\":4}",
+      "input": "[\"foo\", 42, true, false]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[5][2]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3,\"maxItems\":4}",
+      "input": "[\"foo\", 42]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[5][3]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3,\"maxItems\":4}",
+      "input": "[\"foo\", 42, true, false, true]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[5][4]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3,\"maxItems\":4}",
+      "input": "[\"foo\", 42, \"bar\"]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[6][0]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3}",
+      "input": "[\"foo\", 42, true]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[6][1]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3}",
+      "input": "[\"foo\", 42, true, false]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[6][2]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3}",
+      "input": "[\"foo\", 42, true, false, true]",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[6][3]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3}",
+      "input": "[\"foo\", 42]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_array_schema_min_max[6][4]",
+      "schema": "{\"type\":\"array\",\"prefixItems\":[{\"type\":\"string\"},{\"type\":\"integer\"}],\"items\":{\"type\":\"boolean\"},\"minItems\":3}",
+      "input": "[\"foo\", 42, \"bar\"]",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"simple@example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"very.common@example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"FirstName.LastName@EasierReading.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"x@example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"long.email-address-with-hyphens@and.subdomains.example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"user.name+tag+sorting@example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"name/surname@example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"admin@example\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"example@s.example\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"\\\" \\\"@example.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"\\\"john..doe\\\"@example.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"mailhost!username@example.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"\\\"very.(),:;<>[]\\\\\\\".VERY.\\\\\\\"very@\\\\\\\\ \\\\\\\"very\\\\\\\".unusual\\\"@strange.example.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"user%example.com@example.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"user-@example.org\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"abc.example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"a@b@c@example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"a\"b(c)d,e:f;g<h>i[j\\k]l@example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"just\"not\"right@example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[19][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"this is\"not\\allowed@example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[20][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"this\\ still\\\"not\\\\allowed@example.com\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_email_format[21][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"i.like.underscores@but_they_are_not_allowed_in_this_part\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"0000-01-01\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"9999-12-31\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"10-01-01\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"2025-00-01\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"2025-13-01\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"2025-01-00\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date\"}",
+      "input": "\"2025-01-32\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"00:00:00Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"23:59:60Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56+07:08\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56-07:08\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7+08:09\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7-08:09\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"00:00:00\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"23:59:60\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7890\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"24:00:00\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"00:60:00\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"00:00:61\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"00:00:00.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56+07:\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56-07:\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_time_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"time\"}",
+      "input": "\"12:34:56.7+-08:09\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2024-05-19T14:23:45Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2019-11-30T08:15:27+05:30\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2030-02-01T22:59:59-07:00\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2021-07-04T00:00:00.123456Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2022-12-31T23:45:12-03:00\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2024-12-31T23:45:60.123456Z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2024-12-31T23:60:12.123456+05:30\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2024-13-15T14:30:00Z\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2023-02-2010:59:59Z\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2021-11-05T24:00:00+05:30\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_date_time_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"date-time\"}",
+      "input": "\"2022-08-20T12:61:10-03:00\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P0Y\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P12M\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P345D\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P6789W\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P01234D\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT9H\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT87M\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT654S\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1Y23M456D\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P23M456D\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1Y0M456D\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1Y23M\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT9H87M654S\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT87M654S\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT9H0M654S\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT9H87M\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1Y23M456DT9H87M654S\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PD\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[19][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[20][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[21][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"P1Y456D\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_duration_format[22][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"duration\"}",
+      "input": "\"PT9H654S\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"0123:4567:890a:bced:fABC:DEF0:1234:5678\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666:6666:6666:6666:6666:6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666:6666:6666:6666:6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666:6666:6666:6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666:6666:6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666:6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::6666\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888:8888:8888:8888:8888:8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888:8888:8888:8888:8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888:8888:8888:8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888:8888:8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888:8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"8888::\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111::2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[19][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[20][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[21][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111::2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[22][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111::2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[23][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[24][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111:1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[25][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111::2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[26][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111::2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[27][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111::2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[28][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222:2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[29][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111:1111:1111::2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[30][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111:1111::2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[31][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111:1111::2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[32][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111:1111::2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[33][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111:1111::2222:2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[34][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"1111::2222:2222:2222:2222:2222:2222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[35][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"2001:db8:3:4::192.0.2.33\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[36][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"64:ff9b::192.0.2.33\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[37][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::ffff:0:255.255.255.255\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[38][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::111.111.222.222\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[39][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\":\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[40][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\":::\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[41][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"::5555:5555:5555:5555:5555:5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[42][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555::5555:5555:5555:5555:5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[43][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555::5555:5555:5555:5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[44][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555::5555:5555:5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[45][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555:5555::5555:5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[46][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555:5555:5555::5555:5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[47][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555:5555:5555:5555::5555:5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[48][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555:5555:5555:5555:5555::5555\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv6_format[49][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv6\"}",
+      "input": "\"5555:5555:5555:5555:5555:5555:5555:5555::\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"00.00.00.00\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"000.000.000.000\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"255.255.255.255\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1.1\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1.1.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1.1.1\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"1.1.1.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"0001.0001.0001.0001\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_ipv4_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"ipv4\"}",
+      "input": "\"256.256.256.256\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"0\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"9\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"z\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"www.github.com\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"w-w-w.g-i-t-h-u-b.c-o-m\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"ww-w.gi-th-ub.co-m\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"w--ww.git---hub.co----m\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\".\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"-\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"-.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\".-\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"_\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"a.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"-b\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"c-\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"d.-\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"e-.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"-f.\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[19][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"g-.h\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_hostname_format[20][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"hostname\"}",
+      "input": "\"-i.j\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"00000000-0000-0000-0000-000000000000\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"FFFFFFFF-FFFF-FFFF-FFFF-FFFFFFFFFFFF\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"01234567-89AB-CDEF-abcd-ef0123456789\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"-\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"----\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"AAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"BBBBBBBB-BBB-BBBB-BBBB-BBBBBBBBBBBB\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"CCCCCCCC-CCCC-CCC-CCCC-CCCCCCCCCCCC\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"DDDDDDDD-DDDD-DDDD-DDD-DDDDDDDDDDDD\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEE\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"AAAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAAAA\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"BBBBBBBB-BBBBB-BBBB-BBBB-BBBBBBBBBBBB\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"CCCCCCCC-CCCC-CCCCC-CCCC-CCCCCCCCCCCC\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"DDDDDDDD-DDDD-DDDD-DDDDD-DDDDDDDDDDDD\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uuid_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uuid\"}",
+      "input": "\"EEEEEEEE-EEEE-EEEE-EEEE-EEEEEEEEEEEEE\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"aaa:?azAZ09-._~%Ff!$&'()*+,;=:@#azAZ09-._~%Aa!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"z+.-:\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc:\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc:a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc:/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc:/a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://///////\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://azAZ09-._~%Ff!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://:\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://:0123\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://azAZ09-._~%Ff!$&'()*+,;=\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"xyz:/a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"xyz:/azAZ09-._~%Ff!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"aaa:?[#]\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://@@\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc://::\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri\"}",
+      "input": "\"abc:/[]\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"?azAZ09-._~%Ff!$&'()*+,;=:@#azAZ09-._~%Aa!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/////////\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//azAZ09-._~%Ff!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//:\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//:0123\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//azAZ09-._~%Ff!$&'()*+,;=\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/a\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/azAZ09-._~%Ff!$&'()*+,;=:@\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"?[#]\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//@@\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"//::\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\"/[]\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_reference_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-reference\"}",
+      "input": "\":\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"!#$&()*+,-./09:;=?@AZ[]_az~%Ff\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{+a}{#a}{.a}{/a}{;a}{?a}{&a}{=a}{,a}{!a}{@a}{|a}\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{%Ff}\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{i.j.k}\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{a_b_c:1234}\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{x_y_z*}\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"\"\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"'\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[9][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"%\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[10][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"<\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[11][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\">\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[12][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"\\\\\\\\\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[13][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"^\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[14][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"`\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[15][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[16][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"|\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[17][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"}\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[18][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{n.}\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[19][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"{m:100001}\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[20][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"%1\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_uri_template_format[21][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"uri-template\"}",
+      "input": "\"%Gg\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"//\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/a/bc/def/ghij\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/~0/~1/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"abc\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/~\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/~2\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\u007E\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_json_pointer_format[8][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\uD800\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"0/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"123/a/bc/def/ghij\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"45/~0/~1/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"6789#\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"#\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"abc\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[6][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"/\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_relative_json_pointer_format[7][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"9/~2\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"\\\"\\a\\\"@b\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"email\"}",
+      "input": "\"\\\"\\u\\\"@b\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\u0001\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\"a\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[4][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_formats_reject_invalid_json_strings[5][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"0/\u0001\"",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_json_escapes[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\\"\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_json_escapes[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\\\\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_json_escapes[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"0/\\\"\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_json_escapes[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"0/\\\\\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_other_json_escapes[0][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\u0001\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_other_json_escapes[1][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\/\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_other_json_escapes[2][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"json-pointer\"}",
+      "input": "\"/\\n\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_pointer_formats_accept_other_json_escapes[3][0]",
+      "schema": "{\"type\":\"string\",\"format\":\"relative-json-pointer\"}",
+      "input": "\"0/\\u0001\"",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[0][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":0}",
+      "input": "0.1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[1][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":0}",
+      "input": "0",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[2][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":0}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[3][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":0}",
+      "input": "-0.5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[4][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":2}",
+      "input": "1.5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[5][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":2}",
+      "input": "2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[6][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMaximum\":1}",
+      "input": "1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[7][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMaximum\":1}",
+      "input": "0.99",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[8][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":-2}",
+      "input": "-1.5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[9][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":-2}",
+      "input": "-2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[10][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":1,\"maximum\":5}",
+      "input": "5.7",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[11][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":1,\"maximum\":5}",
+      "input": "5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[12][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":1,\"exclusiveMaximum\":5}",
+      "input": "1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[13][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":0.1,\"maximum\":0.3}",
+      "input": "0.2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[14][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":0.1,\"maximum\":0.3}",
+      "input": "0.35",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[15][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":140,\"maximum\":159}",
+      "input": "159",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[16][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":140,\"maximum\":159}",
+      "input": "159.5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[17][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":140,\"maximum\":159}",
+      "input": "149.5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[18][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":-3.14,\"maximum\":2.71828}",
+      "input": "-3.9",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[19][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":0.1,\"maximum\":0.5}",
+      "input": "0.2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[20][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":-0.5,\"maximum\":0.5}",
+      "input": "-0.9",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[21][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":4.0}",
+      "input": "4.1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[22][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":4.0}",
+      "input": "3.9",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[23][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":-4.0}",
+      "input": "-4.1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[24][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5,\"exclusiveMinimum\":3}",
+      "input": "4",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[25][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":3,\"exclusiveMinimum\":3}",
+      "input": "3",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[26][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":3,\"exclusiveMaximum\":3}",
+      "input": "3",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[27][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":2,\"exclusiveMaximum\":5}",
+      "input": "5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[28][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":2,\"maximum\":5}",
+      "input": "2",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[29][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5,\"maximum\":5}",
+      "input": "5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[30][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5,\"maximum\":5}",
+      "input": "5.000001",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[31][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":-5.5}",
+      "input": "-5.5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[32][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":-5.5}",
+      "input": "-5.499999",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[33][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":0.9999999}",
+      "input": "1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[34][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":0.9999999}",
+      "input": "0.999999",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[35][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":4.9999996}",
+      "input": "5",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[36][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":6e-07}",
+      "input": "0.000001",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[37][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":6e-07}",
+      "input": "0",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[38][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":1.0000004}",
+      "input": "1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[39][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":1.0000004}",
+      "input": "1.000001",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[40][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5,\"exclusiveMaximum\":5.0000001}",
+      "input": "5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[41][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":1,\"exclusiveMaximum\":1.0000004}",
+      "input": "1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[42][0]",
+      "schema": "{\"type\":\"number\",\"exclusiveMinimum\":0.9999999,\"maximum\":1}",
+      "input": "1",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[43][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5e+18}",
+      "input": "1000000000000000000",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[44][0]",
+      "schema": "{\"type\":\"number\",\"minimum\":5e+18}",
+      "input": "6000000000000000000",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_number_range_value_acceptance[45][0]",
+      "schema": "{\"type\":\"number\",\"maximum\":1e+19}",
+      "input": "5000000000000000000",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[0][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":2}",
+      "input": "1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[1][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":2}",
+      "input": "2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[2][0]",
+      "schema": "{\"type\":\"integer\",\"exclusiveMinimum\":2}",
+      "input": "2",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[3][0]",
+      "schema": "{\"type\":\"integer\",\"exclusiveMinimum\":2}",
+      "input": "3",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[4][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":-2}",
+      "input": "-1",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[5][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":-2}",
+      "input": "-2",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[6][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":-5}",
+      "input": "-6",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[7][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":-5}",
+      "input": "-5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[8][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":100,\"maximum\":110}",
+      "input": "110",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[9][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":100,\"maximum\":110}",
+      "input": "111",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[10][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":-10}",
+      "input": "-11",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[11][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":-50}",
+      "input": "-49",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[12][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":-50}",
+      "input": "-51",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[13][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":100}",
+      "input": "99",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[14][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":100}",
+      "input": "100",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[15][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":-9223372036854775808,\"maximum\":0}",
+      "input": "-9223372036854775808",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[16][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":0,\"maximum\":9223372036854775807}",
+      "input": "9223372036854775807",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[17][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":0,\"maximum\":9223372036854775807}",
+      "input": "9223372036854775808",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[18][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"exclusiveMinimum\":3}",
+      "input": "4",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[19][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"exclusiveMinimum\":3}",
+      "input": "5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[20][0]",
+      "schema": "{\"type\":\"integer\",\"maximum\":3,\"exclusiveMaximum\":5}",
+      "input": "4",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[21][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":5}",
+      "input": "5",
+      "accepted": true,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[22][0]",
+      "schema": "{\"type\":\"integer\",\"minimum\":5,\"maximum\":5}",
+      "input": "4",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[23][0]",
+      "schema": "{\"type\":\"integer\",\"exclusiveMinimum\":99}",
+      "input": "99",
+      "accepted": false,
+      "strict": true
+    },
+    {
+      "id": "test_integer_range_value_acceptance[24][0]",
+      "schema": "{\"type\":\"integer\",\"exclusiveMinimum\":99}",
+      "input": "100",
+      "accepted": true,
+      "strict": true
+    }
+  ]
+}

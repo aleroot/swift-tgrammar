@@ -1,0 +1,4685 @@
+{
+  "revision": "ca1acf28bf35b9ba9092800b69aebc7d4ce1f7a7",
+  "cases": [
+    {
+      "id": "test_lark_core_languages/0/True/0",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/0/True/1",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "cd",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/0/True/2",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "ce",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/0/False/0",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/0/False/1",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/0/False/2",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/0/False/3",
+      "grammar": "start: \"a\" \"b\" | \"c\" (\"d\" | \"e\")",
+      "input": "ade",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/1/True/0",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/1/True/1",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/1/True/2",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "ac",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/1/True/3",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "bc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/1/False/0",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/1/False/1",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/1/False/2",
+      "grammar": "start: (\"a\" | \"b\") [\"c\"]",
+      "input": "abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/2/True/0",
+      "grammar": "start: | \"a\" | \"b\"",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/2/True/1",
+      "grammar": "start: | \"a\" | \"b\"",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/2/True/2",
+      "grammar": "start: | \"a\" | \"b\"",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/2/False/0",
+      "grammar": "start: | \"a\" | \"b\"",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/2/False/1",
+      "grammar": "start: | \"a\" | \"b\"",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/3/True/0",
+      "grammar": "start: \"a\" |",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/3/True/1",
+      "grammar": "start: \"a\" |",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/3/False/0",
+      "grammar": "start: \"a\" |",
+      "input": "aa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/3/False/1",
+      "grammar": "start: \"a\" |",
+      "input": "b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/4/True/0",
+      "grammar": "start:",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/4/False/0",
+      "grammar": "start:",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/4/False/1",
+      "grammar": "start:",
+      "input": " ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/5/True/0",
+      "grammar": "start: \"\" \"a\" \"\"",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/5/False/0",
+      "grammar": "start: \"\" \"a\" \"\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/5/False/1",
+      "grammar": "start: \"\" \"a\" \"\"",
+      "input": "aa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/6/True/0",
+      "grammar": "?item: \"a\"\n!suffix: \"b\"\nstart: item suffix",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/6/False/0",
+      "grammar": "?item: \"a\"\n!suffix: \"b\"\nstart: item suffix",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/6/False/1",
+      "grammar": "?item: \"a\"\n!suffix: \"b\"\nstart: item suffix",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/6/False/2",
+      "grammar": "?item: \"a\"\n!suffix: \"b\"\nstart: item suffix",
+      "input": "b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/7/True/0",
+      "grammar": "start: _item _TOKEN\n_item: \"a\"\n_TOKEN: \"b\"",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/7/False/0",
+      "grammar": "start: _item _TOKEN\n_item: \"a\"\n_TOKEN: \"b\"",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/7/False/1",
+      "grammar": "start: _item _TOKEN\n_item: \"a\"\n_TOKEN: \"b\"",
+      "input": "b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/7/False/2",
+      "grammar": "start: _item _TOKEN\n_item: \"a\"\n_TOKEN: \"b\"",
+      "input": "_item_TOKEN",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/8/True/0",
+      "grammar": "start: \"a\" -> first\n     | \"b\" -> second",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/8/True/1",
+      "grammar": "start: \"a\" -> first\n     | \"b\" -> second",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/8/False/0",
+      "grammar": "start: \"a\" -> first\n     | \"b\" -> second",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/8/False/1",
+      "grammar": "start: \"a\" -> first\n     | \"b\" -> second",
+      "input": "first",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/8/False/2",
+      "grammar": "start: \"a\" -> first\n     | \"b\" -> second",
+      "input": "second",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/9/True/0",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "x",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/True/1",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "(x)",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/True/2",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "((x))",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/True/3",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[]",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/True/4",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[x]",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/True/5",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[x,(x),[x]]",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/9/False/0",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/9/False/1",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "()",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/9/False/2",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/9/False/3",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[x,]",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/9/False/4",
+      "grammar": "start: value\nvalue: \"x\" | \"(\" value \")\" | \"[\" values? \"]\"\nvalues: value (\",\" value)*",
+      "input": "[(])",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/10/True/0",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "x",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/10/True/1",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "axb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/10/True/2",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "aaxbb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/10/False/0",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/10/False/1",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/10/False/2",
+      "grammar": "start: sequence\nsequence: \"x\" | \"a\" sequence \"b\"",
+      "input": "aaxb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/11/True/0",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/11/True/1",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "123",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/11/True/2",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "+7",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/11/True/3",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "-42",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/11/False/0",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/11/False/1",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "+",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/11/False/2",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "--1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/11/False/3",
+      "grammar": "start: SIGNED\nSIGNED: SIGN? DIGIT+\nSIGN: \"+\" | \"-\"\nDIGIT: \"0\"..\"9\"",
+      "input": "1a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/12/True/0",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'foo'a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/12/True/1",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'foo'aaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/12/True/2",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'bar'b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/12/True/3",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'bar'bbb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/12/True/4",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'foo'bb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/12/False/0",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'bar'a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/12/False/1",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "'bar'c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/12/False/2",
+      "grammar": "start: \"'foo'\" /a+/ | STRING /b+/\nSTRING: /'[^']*'/",
+      "input": "foo",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/13/True/0",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "abcabcabc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/13/True/1",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "aaaabcccc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/13/True/2",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "🔵🟠✅abc❌🟠🔵",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/13/False/0",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "aaabcccc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/13/False/1",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "aaaaabcccc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/13/False/2",
+      "grammar": "start: /.../ \"abc\" /.../",
+      "input": "🔵🟠abc🟠🔵",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/14/True/0",
+      "grammar": "start: /a\\/b/ /[0-9]{2,4}/",
+      "input": "a/b12",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/14/True/1",
+      "grammar": "start: /a\\/b/ /[0-9]{2,4}/",
+      "input": "a/b1234",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/14/False/0",
+      "grammar": "start: /a\\/b/ /[0-9]{2,4}/",
+      "input": "a/b1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/14/False/1",
+      "grammar": "start: /a\\/b/ /[0-9]{2,4}/",
+      "input": "a/b12345",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/14/False/2",
+      "grammar": "start: /a\\/b/ /[0-9]{2,4}/",
+      "input": "a-b12",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/15/True/0",
+      "grammar": "start: /a.b/",
+      "input": "acb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/15/True/1",
+      "grammar": "start: /a.b/",
+      "input": "a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/15/True/2",
+      "grammar": "start: /a.b/",
+      "input": "a😀b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/15/False/0",
+      "grammar": "start: /a.b/",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/15/False/1",
+      "grammar": "start: /a.b/",
+      "input": "a\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/15/False/2",
+      "grammar": "start: /a.b/",
+      "input": "a\n\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/16/True/0",
+      "grammar": "start: /a.b/s",
+      "input": "acb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/16/True/1",
+      "grammar": "start: /a.b/s",
+      "input": "a\nb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/16/True/2",
+      "grammar": "start: /a.b/s",
+      "input": "a😀b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/16/False/0",
+      "grammar": "start: /a.b/s",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/16/False/1",
+      "grammar": "start: /a.b/s",
+      "input": "a\n\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/17/True/0",
+      "grammar": "start: /a\\.b/s",
+      "input": "a.b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/17/False/0",
+      "grammar": "start: /a\\.b/s",
+      "input": "acb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/17/False/1",
+      "grammar": "start: /a\\.b/s",
+      "input": "a\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/18/True/0",
+      "grammar": "start: /a[.]b/s",
+      "input": "a.b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/18/False/0",
+      "grammar": "start: /a[.]b/s",
+      "input": "acb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/18/False/1",
+      "grammar": "start: /a[.]b/s",
+      "input": "a\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/19/True/0",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "hello0!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/19/True/1",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "HELLO1!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/19/True/2",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "HeLlO2!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/19/False/0",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "hello3!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/19/False/1",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "hello1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/19/False/2",
+      "grammar": "start: /hello[0-2]\\x21/iu",
+      "input": "héllo1!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/True/0",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "Żółw",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/20/True/1",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "Σ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/20/True/2",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "k",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/20/True/3",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "K",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/20/True/4",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "ß",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/20/False/0",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "żółw",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/1",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "ŻÓŁW",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/2",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "zółw",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/3",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "σ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/4",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "ς",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/5",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "ẞ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/6",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "K",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/7",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "ss",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/20/False/8",
+      "grammar": "start: /Żółw|Σ|k|ß/iu",
+      "input": "SS",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/21/True/0",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "A",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/True/1",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "ż",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/True/2",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "😀",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/True/3",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "Σ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/True/4",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "ς",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/True/5",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "K",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/21/False/0",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "k",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/21/False/1",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "K",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/21/False/2",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "σ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/21/False/3",
+      "grammar": "start: /[^kσ]+/i",
+      "input": "aK",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/True/0",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "À",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/22/True/1",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "Ö",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/22/True/2",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "ÀÉÖ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/22/False/0",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "à",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/False/1",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "ö",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/False/2",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "×",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/False/3",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "÷",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/False/4",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/22/False/5",
+      "grammar": "start: /[À-Ö]+/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/23/True/0",
+      "grammar": "start: /a.b/is",
+      "input": "a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/23/True/1",
+      "grammar": "start: /a.b/is",
+      "input": "A😀B",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/23/True/2",
+      "grammar": "start: /a.b/is",
+      "input": "a\nb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/23/False/0",
+      "grammar": "start: /a.b/is",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/23/False/1",
+      "grammar": "start: /a.b/is",
+      "input": "a\n\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/23/False/2",
+      "grammar": "start: /a.b/is",
+      "input": "ä\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/24/True/0",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "Z",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/24/True/1",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "09",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/24/True/2",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "Ä",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/24/False/0",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/24/False/1",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "B",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/24/False/2",
+      "grammar": "start: /[^a-c]+/i",
+      "input": "xyzC",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/25/True/0",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/25/True/1",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "ABC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/25/True/2",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "XyZ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/25/True/3",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "cZ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/25/False/0",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/25/False/1",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "d",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/25/False/2",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "w",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/25/False/3",
+      "grammar": "start: TOKEN\nTOKEN: /[A-Cx-z]+/i",
+      "input": "abcd",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/26/True/0",
+      "grammar": "start: /(ab){2,300}c/i",
+      "input": "abABc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/26/True/1",
+      "grammar": "start: /(ab){2,300}c/i",
+      "input": "aBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/26/False/0",
+      "grammar": "start: /(ab){2,300}c/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/26/False/1",
+      "grammar": "start: /(ab){2,300}c/i",
+      "input": "abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/26/False/2",
+      "grammar": "start: /(ab){2,300}c/i",
+      "input": "aBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBababc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/27/True/0",
+      "grammar": "start: /(ab){2,50000}c/i",
+      "input": "abABc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/27/True/1",
+      "grammar": "start: /(ab){2,50000}c/i",
+      "input": "aBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabaBabc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/27/False/0",
+      "grammar": "start: /(ab){2,50000}c/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/27/False/1",
+      "grammar": "start: /(ab){2,50000}c/i",
+      "input": "abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/27/False/2",
+      "grammar": "start: /(ab){2,50000}c/i",
+      "input": "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/28/True/0",
+      "grammar": "start: /(ab){200,}c/i",
+      "input": "ababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/28/True/1",
+      "grammar": "start: /(ab){200,}c/i",
+      "input": "aBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBaBc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/28/False/0",
+      "grammar": "start: /(ab){200,}c/i",
+      "input": "abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/28/False/1",
+      "grammar": "start: /(ab){200,}c/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/29/True/0",
+      "grammar": "start: /(a?){2,300}b/i",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/29/True/1",
+      "grammar": "start: /(a?){2,300}b/i",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/29/True/2",
+      "grammar": "start: /(a?){2,300}b/i",
+      "input": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/29/False/0",
+      "grammar": "start: /(a?){2,300}b/i",
+      "input": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/29/False/1",
+      "grammar": "start: /(a?){2,300}b/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/30/True/0",
+      "grammar": "start: /\\x41\\u0062\\u{43}/i",
+      "input": "AbC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/30/True/1",
+      "grammar": "start: /\\x41\\u0062\\u{43}/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/30/True/2",
+      "grammar": "start: /\\x41\\u0062\\u{43}/i",
+      "input": "ABC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/30/False/0",
+      "grammar": "start: /\\x41\\u0062\\u{43}/i",
+      "input": "abd",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/30/False/1",
+      "grammar": "start: /\\x41\\u0062\\u{43}/i",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/31/True/0",
+      "grammar": "start: /\\u{1F600}+/i",
+      "input": "😀",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/31/True/1",
+      "grammar": "start: /\\u{1F600}+/i",
+      "input": "😀😀",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/31/False/0",
+      "grammar": "start: /\\u{1F600}+/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/31/False/1",
+      "grammar": "start: /\\u{1F600}+/i",
+      "input": "😁",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/32/True/0",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "ABC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/32/True/1",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/32/True/2",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "X",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/32/False/0",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "d",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/32/False/1",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "D",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/32/False/2",
+      "grammar": "start: /[\\u0041-\\u0043x]+/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/33/True/0",
+      "grammar": "start: /x\\cAy/i",
+      "input": "x\u0001y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/33/True/1",
+      "grammar": "start: /x\\cAy/i",
+      "input": "X\u0001Y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/33/False/0",
+      "grammar": "start: /x\\cAy/i",
+      "input": "xy",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/33/False/1",
+      "grammar": "start: /x\\cAy/i",
+      "input": "xay",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/34/True/0",
+      "grammar": "start: /a\\sb/i",
+      "input": "a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/34/True/1",
+      "grammar": "start: /a\\sb/i",
+      "input": "A\tb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/34/True/2",
+      "grammar": "start: /a\\sb/i",
+      "input": "a\nB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/34/True/3",
+      "grammar": "start: /a\\sb/i",
+      "input": "a\fb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/34/True/4",
+      "grammar": "start: /a\\sb/i",
+      "input": "a\u000bb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/34/False/0",
+      "grammar": "start: /a\\sb/i",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/34/False/1",
+      "grammar": "start: /a\\sb/i",
+      "input": "a\u0000b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/34/False/2",
+      "grammar": "start: /a\\sb/i",
+      "input": "a\u0001b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/35/True/0",
+      "grammar": "start: /\\S+/i",
+      "input": "好!x",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/35/True/1",
+      "grammar": "start: /\\S+/i",
+      "input": "\u0000",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/35/False/0",
+      "grammar": "start: /\\S+/i",
+      "input": "a b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/35/False/1",
+      "grammar": "start: /\\S+/i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/36/True/0",
+      "grammar": "start: /a(?=b)c/i",
+      "input": "ac",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/36/True/1",
+      "grammar": "start: /a(?=b)c/i",
+      "input": "AC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/36/False/0",
+      "grammar": "start: /a(?=b)c/i",
+      "input": "abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/36/False/1",
+      "grammar": "start: /a(?=b)c/i",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/37/True/0",
+      "grammar": "start: /(?<name>ab)+(?P<other>c)/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/37/True/1",
+      "grammar": "start: /(?<name>ab)+(?P<other>c)/i",
+      "input": "ABabC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/37/False/0",
+      "grammar": "start: /(?<name>ab)+(?P<other>c)/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/37/False/1",
+      "grammar": "start: /(?<name>ab)+(?P<other>c)/i",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/38/True/0",
+      "grammar": "start: /(?:ab)+c/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/38/True/1",
+      "grammar": "start: /(?:ab)+c/i",
+      "input": "ababC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/38/False/0",
+      "grammar": "start: /(?:ab)+c/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/39/True/0",
+      "grammar": "start: /a^b$c/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/39/True/1",
+      "grammar": "start: /a^b$c/i",
+      "input": "ABC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/39/False/0",
+      "grammar": "start: /a^b$c/i",
+      "input": "ac",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/40/True/0",
+      "grammar": "start: /a+?b??c/i",
+      "input": "ac",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/40/True/1",
+      "grammar": "start: /a+?b??c/i",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/40/True/2",
+      "grammar": "start: /a+?b??c/i",
+      "input": "AAC",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/40/False/0",
+      "grammar": "start: /a+?b??c/i",
+      "input": "c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/40/False/1",
+      "grammar": "start: /a+?b??c/i",
+      "input": "abbc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/41/True/0",
+      "grammar": "start: /(a|)b|c|/i",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/41/True/1",
+      "grammar": "start: /(a|)b|c|/i",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/41/True/2",
+      "grammar": "start: /(a|)b|c|/i",
+      "input": "c",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/41/True/3",
+      "grammar": "start: /(a|)b|c|/i",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/41/False/0",
+      "grammar": "start: /(a|)b|c|/i",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/42/True/0",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/42/True/1",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "xyz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/42/True/2",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "hello7",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/42/False/0",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/42/False/1",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/42/False/2",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "7",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/42/False/3",
+      "grammar": "start: \"a\"..\"z\"+ \"0\"..\"9\"?",
+      "input": "abc78",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/43/True/0",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "α",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/43/True/1",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "βγ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/43/True/2",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "γα",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/43/False/0",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/43/False/1",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "δ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/43/False/2",
+      "grammar": "start: \"α\"..\"γ\"+",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/44/True/0",
+      "grammar": "start: \"😀\" \"é\" \"中文\"",
+      "input": "😀é中文",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/44/False/0",
+      "grammar": "start: \"😀\" \"é\" \"中文\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/44/False/1",
+      "grammar": "start: \"😀\" \"é\" \"中文\"",
+      "input": "😀é",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/44/False/2",
+      "grammar": "start: \"😀\" \"é\" \"中文\"",
+      "input": "😀e中文",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/45/True/0",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "Ab-C9",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/45/True/1",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "ab-c9",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/45/True/2",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "AB-C9",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/45/True/3",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "aB-c9",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/45/False/0",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/45/False/1",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "ab-c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/45/False/2",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "ab_c9",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/45/False/3",
+      "grammar": "start: \"Ab-C9\"i",
+      "input": "äb-c9",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/46/True/0",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "yes",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/46/True/1",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "YES",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/46/True/2",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "YeS",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/46/True/3",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "no",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/46/False/0",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/46/False/1",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "y",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/46/False/2",
+      "grammar": "start: TOKEN\nTOKEN: \"Yes\"i | \"no\"",
+      "input": "No",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/47/True/0",
+      "grammar": "start: \"\\n\" \"\\t\" \"\\\\\" \"\\\"\" \"\\u03bb\"",
+      "input": "\n\t\\\"λ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/47/False/0",
+      "grammar": "start: \"\\n\" \"\\t\" \"\\\\\" \"\\\"\" \"\\u03bb\"",
+      "input": "\\n\\t\\\"λ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/47/False/1",
+      "grammar": "start: \"\\n\" \"\\t\" \"\\\\\" \"\\\"\" \"\\u03bb\"",
+      "input": "\n\tλ",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/48/True/0",
+      "grammar": "start: \"\\b\" \"\\f\" \"\\r\"",
+      "input": "\b\f\r",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/48/False/0",
+      "grammar": "start: \"\\b\" \"\\f\" \"\\r\"",
+      "input": "bfr",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/48/False/1",
+      "grammar": "start: \"\\b\" \"\\f\" \"\\r\"",
+      "input": "\b\f\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/49/True/0",
+      "grammar": "start: foo-bar FOO-BAR\nfoo-bar: \"a\"\nFOO-BAR: \"b\"",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/49/False/0",
+      "grammar": "start: foo-bar FOO-BAR\nfoo-bar: \"a\"\nFOO-BAR: \"b\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/49/False/1",
+      "grammar": "start: foo-bar FOO-BAR\nfoo-bar: \"a\"\nFOO-BAR: \"b\"",
+      "input": "a-b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/49/False/2",
+      "grammar": "start: foo-bar FOO-BAR\nfoo-bar: \"a\"\nFOO-BAR: \"b\"",
+      "input": "foo-barFOO-BAR",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/50/True/0",
+      "grammar": "start: item // top-level comment\nitem: \"ok\" # rule comment",
+      "input": "ok",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_core_languages/50/False/0",
+      "grammar": "start: item // top-level comment\nitem: \"ok\" # rule comment",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/50/False/1",
+      "grammar": "start: item // top-level comment\nitem: \"ok\" # rule comment",
+      "input": "item",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_core_languages/50/False/2",
+      "grammar": "start: item // top-level comment\nitem: \"ok\" # rule comment",
+      "input": "ok#",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/0/True/0",
+      "grammar": "start: \"a\"?",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/0/True/1",
+      "grammar": "start: \"a\"?",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/0/False/0",
+      "grammar": "start: \"a\"?",
+      "input": "aa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/1/True/0",
+      "grammar": "start: \"a\"*",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/1/True/1",
+      "grammar": "start: \"a\"*",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/1/True/2",
+      "grammar": "start: \"a\"*",
+      "input": "aaaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/1/False/0",
+      "grammar": "start: \"a\"*",
+      "input": "b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/1/False/1",
+      "grammar": "start: \"a\"*",
+      "input": "aaab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/2/True/0",
+      "grammar": "start: \"a\"+",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/2/True/1",
+      "grammar": "start: \"a\"+",
+      "input": "aaaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/2/False/0",
+      "grammar": "start: \"a\"+",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/2/False/1",
+      "grammar": "start: \"a\"+",
+      "input": "b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/3/True/0",
+      "grammar": "start: \"a\"~2",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/3/False/0",
+      "grammar": "start: \"a\"~2",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/3/False/1",
+      "grammar": "start: \"a\"~2",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/3/False/2",
+      "grammar": "start: \"a\"~2",
+      "input": "aaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/4/True/0",
+      "grammar": "start: \"a\"~2..4",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/4/True/1",
+      "grammar": "start: \"a\"~2..4",
+      "input": "aaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/4/True/2",
+      "grammar": "start: \"a\"~2..4",
+      "input": "aaaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/4/False/0",
+      "grammar": "start: \"a\"~2..4",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/4/False/1",
+      "grammar": "start: \"a\"~2..4",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/4/False/2",
+      "grammar": "start: \"a\"~2..4",
+      "input": "aaaaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/5/True/0",
+      "grammar": "start: \"a\"{2}",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/5/False/0",
+      "grammar": "start: \"a\"{2}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/5/False/1",
+      "grammar": "start: \"a\"{2}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/5/False/2",
+      "grammar": "start: \"a\"{2}",
+      "input": "aaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/6/True/0",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/6/True/1",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "aaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/6/True/2",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "aaaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/6/False/0",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/6/False/1",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/6/False/2",
+      "grammar": "start: \"a\"{2,4}",
+      "input": "aaaaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/7/True/0",
+      "grammar": "start: \"a\"{2,}",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/7/True/1",
+      "grammar": "start: \"a\"{2,}",
+      "input": "aaaaaa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/7/False/0",
+      "grammar": "start: \"a\"{2,}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/7/False/1",
+      "grammar": "start: \"a\"{2,}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/8/True/0",
+      "grammar": "start: \"a\"{,2}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/8/True/1",
+      "grammar": "start: \"a\"{,2}",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/8/True/2",
+      "grammar": "start: \"a\"{,2}",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/8/False/0",
+      "grammar": "start: \"a\"{,2}",
+      "input": "aaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/9/True/0",
+      "grammar": "start: \"a\"{0}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/9/False/0",
+      "grammar": "start: \"a\"{0}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/10/True/0",
+      "grammar": "start: \"a\"{0,0}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/10/False/0",
+      "grammar": "start: \"a\"{0,0}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/11/True/0",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "aa",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/11/True/1",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "abc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/11/True/2",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "bca",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/11/True/3",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "bcbcbc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/11/False/0",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/11/False/1",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/11/False/2",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "bcbc bcbc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/11/False/3",
+      "grammar": "start: (\"a\" | \"bc\"){2,3}",
+      "input": "aaaa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/12/True/0",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "xx",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/12/True/1",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "xy",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/12/True/2",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "yyy",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/12/False/0",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/12/False/1",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/12/False/2",
+      "grammar": "start: ITEM{2,3}\nITEM: \"x\" | \"y\"",
+      "input": "xxxx",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/13/True/0",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "xx",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/13/True/1",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "x(x)",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/13/True/2",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "(x)(x)(x)",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_repetition_forms/13/False/0",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/13/False/1",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_repetition_forms/13/False/2",
+      "grammar": "start: item{2,3}\nitem: \"x\" | \"(\" item \")\"",
+      "input": "xxxx",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/0/True/0",
+      "grammar": "%import common.DIGIT\nstart: DIGIT",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/0/True/1",
+      "grammar": "%import common.DIGIT\nstart: DIGIT",
+      "input": "9",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/0/False/0",
+      "grammar": "%import common.DIGIT\nstart: DIGIT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/0/False/1",
+      "grammar": "%import common.DIGIT\nstart: DIGIT",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/0/False/2",
+      "grammar": "%import common.DIGIT\nstart: DIGIT",
+      "input": "10",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/1/True/0",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/1/True/1",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/1/True/2",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "F",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/1/False/0",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/1/False/1",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "g",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/1/False/2",
+      "grammar": "%import common.HEXDIGIT\nstart: HEXDIGIT",
+      "input": "ff",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/2/True/0",
+      "grammar": "%import common.INT\nstart: INT",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/2/True/1",
+      "grammar": "%import common.INT\nstart: INT",
+      "input": "123",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/2/False/0",
+      "grammar": "%import common.INT\nstart: INT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/2/False/1",
+      "grammar": "%import common.INT\nstart: INT",
+      "input": "-1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/2/False/2",
+      "grammar": "%import common.INT\nstart: INT",
+      "input": "1.0",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/3/True/0",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/3/True/1",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "+12",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/3/True/2",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "-3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/3/False/0",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/3/False/1",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "+",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/3/False/2",
+      "grammar": "%import common.SIGNED_INT\nstart: SIGNED_INT",
+      "input": "1.0",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/4/True/0",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": "1.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/4/True/1",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": "1.5",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/4/True/2",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": ".25",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/4/False/0",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/4/False/1",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": "1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/4/False/2",
+      "grammar": "%import common.DECIMAL\nstart: DECIMAL",
+      "input": ".",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/5/True/0",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "e1",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/5/True/1",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "E+12",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/5/True/2",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "e-3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/5/False/0",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/5/False/1",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/5/False/2",
+      "grammar": "%import common._EXP\nstart: _EXP",
+      "input": "e",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/6/True/0",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "1.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/6/True/1",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": ".5",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/6/True/2",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "1e3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/6/True/3",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "1.2e-3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/6/False/0",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/6/False/1",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/6/False/2",
+      "grammar": "%import common.FLOAT\nstart: FLOAT",
+      "input": "e3",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/7/True/0",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "-1.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/7/True/1",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "+.5",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/7/True/2",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "-1e3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/7/True/3",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "1.2e-3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/7/False/0",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/7/False/1",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/7/False/2",
+      "grammar": "%import common.SIGNED_FLOAT\nstart: SIGNED_FLOAT",
+      "input": "+",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/8/True/0",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/8/True/1",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "12",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/8/True/2",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": ".5",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/8/True/3",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "1e3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/8/False/0",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/8/False/1",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "-1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/8/False/2",
+      "grammar": "%import common.NUMBER\nstart: NUMBER",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/9/True/0",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/9/True/1",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "-12",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/9/True/2",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "+.5",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/9/True/3",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "-1e3",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/9/False/0",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/9/False/1",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "+",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/9/False/2",
+      "grammar": "%import common.SIGNED_NUMBER\nstart: SIGNED_NUMBER",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/10/True/0",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "\"\"",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/10/True/1",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "\"abc\"",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/10/True/2",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "\"a\\\"b\"",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/10/True/3",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "\"a\\nb\"",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/10/False/0",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/10/False/1",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/10/False/2",
+      "grammar": "%import common.ESCAPED_STRING\nstart: ESCAPED_STRING",
+      "input": "\"unterminated",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/11/True/0",
+      "grammar": "%import common.LCASE_LETTER\nstart: LCASE_LETTER",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/11/True/1",
+      "grammar": "%import common.LCASE_LETTER\nstart: LCASE_LETTER",
+      "input": "z",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/11/False/0",
+      "grammar": "%import common.LCASE_LETTER\nstart: LCASE_LETTER",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/11/False/1",
+      "grammar": "%import common.LCASE_LETTER\nstart: LCASE_LETTER",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/11/False/2",
+      "grammar": "%import common.LCASE_LETTER\nstart: LCASE_LETTER",
+      "input": "aa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/12/True/0",
+      "grammar": "%import common.UCASE_LETTER\nstart: UCASE_LETTER",
+      "input": "A",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/12/True/1",
+      "grammar": "%import common.UCASE_LETTER\nstart: UCASE_LETTER",
+      "input": "Z",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/12/False/0",
+      "grammar": "%import common.UCASE_LETTER\nstart: UCASE_LETTER",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/12/False/1",
+      "grammar": "%import common.UCASE_LETTER\nstart: UCASE_LETTER",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/12/False/2",
+      "grammar": "%import common.UCASE_LETTER\nstart: UCASE_LETTER",
+      "input": "AA",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/13/True/0",
+      "grammar": "%import common.LETTER\nstart: LETTER",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/13/True/1",
+      "grammar": "%import common.LETTER\nstart: LETTER",
+      "input": "Z",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/13/False/0",
+      "grammar": "%import common.LETTER\nstart: LETTER",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/13/False/1",
+      "grammar": "%import common.LETTER\nstart: LETTER",
+      "input": "1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/13/False/2",
+      "grammar": "%import common.LETTER\nstart: LETTER",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/14/True/0",
+      "grammar": "%import common.WORD\nstart: WORD",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/14/True/1",
+      "grammar": "%import common.WORD\nstart: WORD",
+      "input": "AbCd",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/14/False/0",
+      "grammar": "%import common.WORD\nstart: WORD",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/14/False/1",
+      "grammar": "%import common.WORD\nstart: WORD",
+      "input": "a1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/14/False/2",
+      "grammar": "%import common.WORD\nstart: WORD",
+      "input": "a_b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/15/True/0",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/15/True/1",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "_a1",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/15/True/2",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "A_2",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/15/False/0",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/15/False/1",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "1a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/15/False/2",
+      "grammar": "%import common.CNAME\nstart: CNAME",
+      "input": "a-b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/16/True/0",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": " ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/16/True/1",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": "\t",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/16/True/2",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": " \t ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/16/False/0",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/16/False/1",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": "\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/16/False/2",
+      "grammar": "%import common.WS_INLINE\nstart: WS_INLINE",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/17/True/0",
+      "grammar": "%import common.WS\nstart: WS",
+      "input": " ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/17/True/1",
+      "grammar": "%import common.WS\nstart: WS",
+      "input": "\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/17/True/2",
+      "grammar": "%import common.WS\nstart: WS",
+      "input": "\t\f\r\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/17/False/0",
+      "grammar": "%import common.WS\nstart: WS",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/17/False/1",
+      "grammar": "%import common.WS\nstart: WS",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/18/True/0",
+      "grammar": "%import common.CR\nstart: CR",
+      "input": "\r",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/18/False/0",
+      "grammar": "%import common.CR\nstart: CR",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/18/False/1",
+      "grammar": "%import common.CR\nstart: CR",
+      "input": "\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/18/False/2",
+      "grammar": "%import common.CR\nstart: CR",
+      "input": "\r\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/19/True/0",
+      "grammar": "%import common.LF\nstart: LF",
+      "input": "\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/19/False/0",
+      "grammar": "%import common.LF\nstart: LF",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/19/False/1",
+      "grammar": "%import common.LF\nstart: LF",
+      "input": "\r",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/19/False/2",
+      "grammar": "%import common.LF\nstart: LF",
+      "input": "\r\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/20/True/0",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/20/True/1",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "\r\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/20/True/2",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "\r\n\n",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/20/False/0",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/20/False/1",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "\r",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/20/False/2",
+      "grammar": "%import common.NEWLINE\nstart: NEWLINE",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/21/True/0",
+      "grammar": "%import common.SH_COMMENT\nstart: SH_COMMENT",
+      "input": "#",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/21/True/1",
+      "grammar": "%import common.SH_COMMENT\nstart: SH_COMMENT",
+      "input": "# hello",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/21/False/0",
+      "grammar": "%import common.SH_COMMENT\nstart: SH_COMMENT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/21/False/1",
+      "grammar": "%import common.SH_COMMENT\nstart: SH_COMMENT",
+      "input": "// hello",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/21/False/2",
+      "grammar": "%import common.SH_COMMENT\nstart: SH_COMMENT",
+      "input": "# a\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/22/True/0",
+      "grammar": "%import common.CPP_COMMENT\nstart: CPP_COMMENT",
+      "input": "//",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/22/True/1",
+      "grammar": "%import common.CPP_COMMENT\nstart: CPP_COMMENT",
+      "input": "// hello",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/22/False/0",
+      "grammar": "%import common.CPP_COMMENT\nstart: CPP_COMMENT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/22/False/1",
+      "grammar": "%import common.CPP_COMMENT\nstart: CPP_COMMENT",
+      "input": "# hello",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/22/False/2",
+      "grammar": "%import common.CPP_COMMENT\nstart: CPP_COMMENT",
+      "input": "// a\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/23/True/0",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "/**/",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/23/True/1",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "/* hello */",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/23/True/2",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "/* ** x **/",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/23/False/0",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/23/False/1",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "// hello",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/23/False/2",
+      "grammar": "%import common.C_COMMENT\nstart: C_COMMENT",
+      "input": "/* open",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/24/True/0",
+      "grammar": "%import common.SQL_COMMENT\nstart: SQL_COMMENT",
+      "input": "--",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/24/True/1",
+      "grammar": "%import common.SQL_COMMENT\nstart: SQL_COMMENT",
+      "input": "-- hello",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_common_imports/24/False/0",
+      "grammar": "%import common.SQL_COMMENT\nstart: SQL_COMMENT",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/24/False/1",
+      "grammar": "%import common.SQL_COMMENT\nstart: SQL_COMMENT",
+      "input": "- hello",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_common_imports/24/False/2",
+      "grammar": "%import common.SQL_COMMENT\nstart: SQL_COMMENT",
+      "input": "-- a\n",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/True/0",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "x=1",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/True/1",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "name = 42",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/True/2",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "_x\t=\t0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/False/0",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/False/1",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "1x=2",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_multi_import_alias_and_forward_import/0/False/2",
+      "grammar": "\n        %ignore WS_INLINE\n        start: NAME \"=\" NUMBER\n        %import common (CNAME, WS_INLINE)\n        %import common.INT -> NUMBER\n        NAME: CNAME\n    ",
+      "input": "x=-1",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/True/0",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": "a1c",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/True/1",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": "a 1 d",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/True/2",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": "a\n1\n c  ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/False/0",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": " a1c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/False/1",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": "a 1 e",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_ignore_is_inserted_between_and_after_lexemes/0/False/2",
+      "grammar": "\n        %import common.WS\n        %ignore WS\n        start: \"a\" DIGIT \"c\"..\"d\"\n        DIGIT: \"0\"..\"9\"\n    ",
+      "input": "a x c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/True/0",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/True/1",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": "a // comment\n b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/True/2",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": "a# comment\nb",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/True/3",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": "a b // trailing",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/False/0",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": " // initial\na b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_multiple_ignore_declarations/0/False/1",
+      "grammar": "\n        %import common (WS, CPP_COMMENT, SH_COMMENT)\n        %ignore WS\n        %ignore CPP_COMMENT\n        %ignore SH_COMMENT\n        start: \"a\" \"b\"\n    ",
+      "input": "a x b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_ignore_inline_regex/0/True/0",
+      "grammar": "\n        %ignore /[ _]+/\n        start: \"a\" \"b\"\n    ",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_inline_regex/0/True/1",
+      "grammar": "\n        %ignore /[ _]+/\n        start: \"a\" \"b\"\n    ",
+      "input": "a_b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_inline_regex/0/True/2",
+      "grammar": "\n        %ignore /[ _]+/\n        start: \"a\" \"b\"\n    ",
+      "input": "a _ b___",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_ignore_inline_regex/0/False/0",
+      "grammar": "\n        %ignore /[ _]+/\n        start: \"a\" \"b\"\n    ",
+      "input": "_ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_ignore_inline_regex/0/False/1",
+      "grammar": "\n        %ignore /[ _]+/\n        start: \"a\" \"b\"\n    ",
+      "input": "a-b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_allow_initial_skip_options/0/True/0",
+      "grammar": "\n        %grammar_options {\"allow_initial_skip\": false}\n        %grammar_options {\"allow_initial_skip\": true, \"no_forcing\": false, \"allow_invalid_utf8\": false}\n        %import common.WS\n        %ignore WS\n        start: \"a\" \"b\"\n    ",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_allow_initial_skip_options/0/True/1",
+      "grammar": "\n        %grammar_options {\"allow_initial_skip\": false}\n        %grammar_options {\"allow_initial_skip\": true, \"no_forcing\": false, \"allow_invalid_utf8\": false}\n        %import common.WS\n        %ignore WS\n        start: \"a\" \"b\"\n    ",
+      "input": " a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_allow_initial_skip_options/0/True/2",
+      "grammar": "\n        %grammar_options {\"allow_initial_skip\": false}\n        %grammar_options {\"allow_initial_skip\": true, \"no_forcing\": false, \"allow_invalid_utf8\": false}\n        %import common.WS\n        %ignore WS\n        start: \"a\" \"b\"\n    ",
+      "input": "\n\ta\n b  ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_allow_initial_skip_options/0/False/0",
+      "grammar": "\n        %grammar_options {\"allow_initial_skip\": false}\n        %grammar_options {\"allow_initial_skip\": true, \"no_forcing\": false, \"allow_invalid_utf8\": false}\n        %import common.WS\n        %ignore WS\n        start: \"a\" \"b\"\n    ",
+      "input": "a c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_allow_initial_skip_options/0/False/1",
+      "grammar": "\n        %grammar_options {\"allow_initial_skip\": false}\n        %grammar_options {\"allow_initial_skip\": true, \"no_forcing\": false, \"allow_invalid_utf8\": false}\n        %import common.WS\n        %ignore WS\n        start: \"a\" \"b\"\n    ",
+      "input": " xab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_default_disallows_initial_skip_but_allows_trailing_skip/0/True/0",
+      "grammar": "\n        %import common.WS_INLINE\n        %ignore WS_INLINE\n        start: \"a\" \"b\"\n    ",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_default_disallows_initial_skip_but_allows_trailing_skip/0/True/1",
+      "grammar": "\n        %import common.WS_INLINE\n        %ignore WS_INLINE\n        start: \"a\" \"b\"\n    ",
+      "input": "a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_default_disallows_initial_skip_but_allows_trailing_skip/0/True/2",
+      "grammar": "\n        %import common.WS_INLINE\n        %ignore WS_INLINE\n        start: \"a\" \"b\"\n    ",
+      "input": "ab  ",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_default_disallows_initial_skip_but_allows_trailing_skip/0/False/0",
+      "grammar": "\n        %import common.WS_INLINE\n        %ignore WS_INLINE\n        start: \"a\" \"b\"\n    ",
+      "input": " ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_default_disallows_initial_skip_but_allows_trailing_skip/0/False/1",
+      "grammar": "\n        %import common.WS_INLINE\n        %ignore WS_INLINE\n        start: \"a\" \"b\"\n    ",
+      "input": "a\nb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_inline_json_inside_sequence_and_repeat/0/True/0",
+      "grammar": "\n        start: \"values=\" value (\";\" value)* \".\"\n        value: %json {\"type\":\"integer\"}\n    ",
+      "input": "values=1.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_inline_json_inside_sequence_and_repeat/0/True/1",
+      "grammar": "\n        start: \"values=\" value (\";\" value)* \".\"\n        value: %json {\"type\":\"integer\"}\n    ",
+      "input": "values=1;-2;3.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_inline_json_inside_sequence_and_repeat/0/False/0",
+      "grammar": "\n        start: \"values=\" value (\";\" value)* \".\"\n        value: %json {\"type\":\"integer\"}\n    ",
+      "input": "values=.",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_inline_json_inside_sequence_and_repeat/0/False/1",
+      "grammar": "\n        start: \"values=\" value (\";\" value)* \".\"\n        value: %json {\"type\":\"integer\"}\n    ",
+      "input": "values=\"1\".",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_inline_json_inside_sequence_and_repeat/0/False/2",
+      "grammar": "\n        start: \"values=\" value (\";\" value)* \".\"\n        value: %json {\"type\":\"integer\"}\n    ",
+      "input": "values=1;.",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/0",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/1",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AabcB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/2",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AdeB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/3",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AfgB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/4",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AabcdeB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/5",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AdefgB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/True/6",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AabcdefgB",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/False/0",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AabB",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/False/1",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AcdeB",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/False/2",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AabcfgB",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chunks/0/False/3",
+      "grammar": "\n        start: \"A\" SUB \"B\"\n        SUB: %regex {\"substring_chunks\":[\"abc\",\"de\",\"fg\"]}\n    ",
+      "input": "AdeabcB",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/0",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/1",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/2",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/3",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/4",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "ba",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/5",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "aba",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/6",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "bab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/True/7",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "abab",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/False/0",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "aa",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/False/1",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "bb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/False/2",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "abba",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_repeated_and_empty_chunks/0/False/3",
+      "grammar": "start: %regex {\"substring_chunks\":[\"a\",\"\",\"b\",\"a\",\"b\"]}",
+      "input": "baba",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/0",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/1",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "The fox.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/2",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "he fo",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/3",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "fox.",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/0",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "Thefox",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/1",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "he fx",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/2",
+      "grammar": "start: %regex {\"substring_chars\":\"The fox.\"}",
+      "input": "The fox..",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/0",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/1",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/2",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "빠",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/3",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "🙂",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/4",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "빠🙂",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/5",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "🙂b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/True/6",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "a빠🙂b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/0",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "a🙂",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/1",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "빠b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_ascii_and_unicode/0/False/2",
+      "grammar": "start: %regex {\"substring_chars\":\"a빠🙂b\"}",
+      "input": "a빠b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/0",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/1",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "a",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/2",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "\u0000",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/3",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/4",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "a\u0000",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/5",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "\u0000b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/True/6",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "a\u0000b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/False/0",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_structured_regex_substring_chars_preserves_nul/0/False/1",
+      "grammar": "start: %regex {\"substring_chars\":\"a\\u0000b\"}",
+      "input": "a\u0000\u0000b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/0",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/1",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "plain text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/2",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "text <tool_cal and more",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/3",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>{\"x\":1}</tool_call>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/4",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "before<tool_call>{\"x\":1}</tool_call>after",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/5",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>{\"x\":1}</tool_call><tool_call>{\"x\":2}</tool_call>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/True/6",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "line 1\nline 2<tool_call>{ \"x\" : -3 }</tool_call>tail",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/0",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/1",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>{\"x\":\"bad\"}</tool_call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/2",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>{\"x\":1}",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/3",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "before<tool_call>free text</tool_call>after",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/4",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call> {\"x\":1}</tool_call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_tool_call_optional_repeated_and_committed/0/False/5",
+      "grammar": "\n    start: tool* tail\n    tail: TEXT\n\n    tool_head[lazy]: TEXT \"<tool_call>\"\n    tool: tool_head %json {\n      \"type\": \"object\",\n      \"properties\": {\"x\": {\"type\": \"integer\"}},\n      \"required\": [\"x\"],\n      \"additionalProperties\": false\n    } \"</tool_call>\"\n\n    TEXT: /(\\n|.)*/\n",
+      "input": "<tool_call>{\"x\":1} </tool_call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/True/0",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/True/1",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "partial <fo remains text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/True/2",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<foo>abc</foo>y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/True/3",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<bar>12</bar><foo>x</foo>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/False/0",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<foo>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/False/1",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<foo>12</foo>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/False/2",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<bar>x</bar>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_distinct_string_triggers/0/False/3",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<foo>\"\n        foo: foo_head /[a-z]+/ \"</foo>\"\n\n        bar_head[lazy]: TEXT \"<bar>\"\n        bar: bar_head /[0-9]+/ \"</bar>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<bar>12",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/True/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "partial <cal",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/True/3",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<call>12</call>y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>x</call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>12",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_suffix/0/False/3",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*<call>/\n        tool: head /[0-9]+/ \"</call>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<call>12</call><call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_regex_suffix/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/s\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/s\n    ",
+      "input": "line 1\nline 2",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_regex_suffix/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/s\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/s\n    ",
+      "input": "x\n<call>ok</call>tail",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_regex_suffix/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/s\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/s\n    ",
+      "input": "<call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_regex_suffix/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/s\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/s\n    ",
+      "input": "<call>bad</call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_regex_suffix/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/s\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/s\n    ",
+      "input": "x\n<call>ok",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_unicode_regex_flags/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/su\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/su\n    ",
+      "input": "line 1\nline 2",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_unicode_regex_flags/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/su\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/su\n    ",
+      "input": "x\n<call>ok</call>tail",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_unicode_regex_flags/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/su\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/su\n    ",
+      "input": "<call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_unicode_regex_flags/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/su\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/su\n    ",
+      "input": "<call>bad</call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_dotall_unicode_regex_flags/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /.*<call>/su\n        tool: head \"ok\" \"</call>\"\n        TEXT: /.*/su\n    ",
+      "input": "x\n<call>ok",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<tool>abc</tool>y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/True/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "partial <too",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>123</tool>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_suffix_attribute/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[suffix=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_newline_trigger/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*\\n>>>>>>>/\n        tool: head \"replacement\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free >>>>>>> text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_newline_trigger/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*\\n>>>>>>>/\n        tool: head \"replacement\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "before\n>>>>>>>replacementafter",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_newline_trigger/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*\\n>>>>>>>/\n        tool: head \"replacement\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "\n>>>>>>>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_newline_trigger/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*\\n>>>>>>>/\n        tool: head \"replacement\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "before\n>>>>>>>wrong",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_metacharacter_trigger/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*END\\./\n        tool: head \"ok\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free END text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_metacharacter_trigger/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*END\\./\n        tool: head \"ok\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "beforeEND.okafter",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_metacharacter_trigger/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*END\\./\n        tool: head \"ok\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "END.",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_metacharacter_trigger/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*END\\./\n        tool: head \"ok\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "beforeEND.not-ok",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_lazy_regex_escaped_metacharacter_trigger/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[lazy]: /(\\n|.)*END\\./\n        tool: head \"ok\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "beforeEND.okEND.",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/True/0",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free text",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/True/1",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "a<function=foo>abc</function>b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/True/2",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function=bar>ABC</function><function=foo>xyz</function>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/False/0",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/False/1",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function=baz>abc</function>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/False/2",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function=foo>ABC</function>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/False/3",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function=bar>abc</function>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_shared_trigger_dispatch/0/False/4",
+      "grammar": "\n        start: (foo | bar)* tail\n        tail: TEXT\n\n        foo_head[lazy]: TEXT \"<function\"\n        foo: foo_head \"=foo>\" /[a-z]+/ \"</function>\"\n\n        bar_head[lazy]: TEXT \"<function\"\n        bar: bar_head \"=bar>\" /[A-Z]+/ \"</function>\"\n\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<function=foo>abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<call>12</call>y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/True/2",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "partial <cal",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>x</call>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_any_text_can_be_referenced_through_terminals/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: FREE\n        head[lazy]: FREE \"<call>\"\n        tool: head /[0-9]+/ \"</call>\"\n        FREE: TEXT\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<call>12",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/True/0",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/True/1",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "plain",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/True/2",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<end>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/True/3",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "plain<end>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/False/0",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<end>x",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_standalone_lazy_rule/0/False/1",
+      "grammar": "\n        start: head\n        head[lazy]: TEXT \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "a<end>b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_terminal/0/True/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_terminal/0/True/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "abc<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_terminal/0/False/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "ABC<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_terminal/0/False/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "a<end>b<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_terminal/0/False/2",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "abc<end>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_any_text/0/True/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_any_text/0/True/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "abc<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_any_text/0/True/2",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "a\nb<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_any_text/0/True/3",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "你好<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_starred_any_text/0/False/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT* \"<end>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "a<end>b<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_plus_terminal/0/True/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT+ \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "a<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_plus_terminal/0/True/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT+ \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "abc<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_plus_terminal/0/False/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT+ \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_plus_terminal/0/False/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: TEXT+ \"<end>\"\n        TEXT: /[a-z]/\n    ",
+      "input": "a<end>b<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/True/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: AB+ \"<end>\"\n        AB: \"a\" | \"b\"\n    ",
+      "input": "ab<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/True/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: AB+ \"<end>\"\n        AB: \"a\" | \"b\"\n    ",
+      "input": "b<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/False/0",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: AB+ \"<end>\"\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/False/1",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: AB+ \"<end>\"\n        AB: \"a\" | \"b\"\n    ",
+      "input": "c<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/False/2",
+      "grammar": "\n        start: head \"!\"\n        head[lazy]: AB+ \"<end>\"\n        AB: \"a\" | \"b\"\n    ",
+      "input": "a<end>b<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/True/0",
+      "grammar": "start: head \"!\"\nhead[lazy]: (\"a\"|\"b\")* \"<end>\"",
+      "input": "<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/True/1",
+      "grammar": "start: head \"!\"\nhead[lazy]: (\"a\"|\"b\")* \"<end>\"",
+      "input": "ba<end>!",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/False/0",
+      "grammar": "start: head \"!\"\nhead[lazy]: (\"a\"|\"b\")* \"<end>\"",
+      "input": "c<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_rule_quantified_alternation/0/False/1",
+      "grammar": "start: head \"!\"\nhead[lazy]: (\"a\"|\"b\")* \"<end>\"",
+      "input": "a<end>b<end>!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "<a>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/True/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "<b>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "<ab>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/False/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "<>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/False/2",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "<a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/False/3",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/",
+      "input": "a>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr: /[a-z]+/",
+      "input": "<a>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/True/1",
+      "grammar": "start: \"<\" r \">\"\nr: /[a-z]+/",
+      "input": "<ab>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_committed_shortest_regex/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr: /[a-z]+/",
+      "input": "<>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_matches_exactly_one_unit/0/True/0",
+      "grammar": "start: r \"a\"\nr[lazy]: /[b]+/",
+      "input": "ba",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_matches_exactly_one_unit/0/False/0",
+      "grammar": "start: r \"a\"\nr[lazy]: /[b]+/",
+      "input": "bba",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_matches_exactly_one_unit/0/False/1",
+      "grammar": "start: r \"a\"\nr[lazy]: /[b]+/",
+      "input": "a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_nullable_always_matches_empty/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]*/",
+      "input": "<>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_nullable_always_matches_empty/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]*/",
+      "input": "<a>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_nullable_always_matches_empty/0/False/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]*/",
+      "input": "<ab>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_nullable_always_matches_empty/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]?/",
+      "input": "<>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_nullable_always_matches_empty/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]?/",
+      "input": "<a>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"ab\" | \"abc\"",
+      "input": "<ab>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"ab\" | \"abc\"",
+      "input": "<abc>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"aa\" | \"bb\"",
+      "input": "<aa>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/True/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"aa\" | \"bb\"",
+      "input": "<bb>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"aa\" | \"bb\"",
+      "input": "<a>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_choices_commit_at_shortest/0/False/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: \"aa\" | \"bb\"",
+      "input": "<ab>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_composed_of_terminals/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: SUB SUB\nSUB: /[a-z]/",
+      "input": "<ab>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_composed_of_terminals/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: SUB SUB\nSUB: /[a-z]/",
+      "input": "<a>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_composed_of_terminals/0/False/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: SUB SUB\nSUB: /[a-z]/",
+      "input": "<abc>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_per_occurrence_commit/0/True/0",
+      "grammar": "start: r \" \" r\nr[lazy]: /[a-z]+/",
+      "input": "a b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_per_occurrence_commit/0/False/0",
+      "grammar": "start: r \" \" r\nr[lazy]: /[a-z]+/",
+      "input": "ab b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_per_occurrence_commit/0/False/1",
+      "grammar": "start: r \" \" r\nr[lazy]: /[a-z]+/",
+      "input": "a bb",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_per_occurrence_commit/0/False/2",
+      "grammar": "start: r \" \" r\nr[lazy]: /[a-z]+/",
+      "input": "a b c",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_lazy_ignore_is_not_woven_into_lazy_rules/0/True/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/\n%ignore \" \"",
+      "input": "<a>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_ignore_is_not_woven_into_lazy_rules/0/True/1",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/\n%ignore \" \"",
+      "input": "< a >",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_lazy_ignore_is_not_woven_into_lazy_rules/0/False/0",
+      "grammar": "start: \"<\" r \">\"\nr[lazy]: /[a-z]+/\n%ignore \" \"",
+      "input": "<ab>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/True/0",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "aabc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/True/1",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "bc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/False/0",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "abbc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/False/1",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "aac",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/False/2",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/0/False/3",
+      "grammar": "start: r \"c\"\nr[suffix=\"b\"]: /[a-z]*/",
+      "input": "aab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/True/0",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "aabc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/True/1",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "bc",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/False/0",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "abbc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/False/1",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "aac",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/False/2",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_general_body_commits_at_first_marker/1/False/3",
+      "grammar": "start: r \"c\"\nr[stop=\"b\"]: /[a-z]*/",
+      "input": "aab",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<abcd!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/0/False/3",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<abcde!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<abcd!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<a!!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_regex_marker/1/False/3",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=/!!+/]: /[a-z]{1,4}/\n    ",
+      "input": "<abcde!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word??>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word?>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/0/False/3",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word???>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word??>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<a!!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word?>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_named_terminal_marker/1/False/3",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=END]: /[a-z]+/\n        END: /!!+/ | \"??\"\n    ",
+      "input": "<word???>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/0/True/0",
+      "grammar": "start: r \"z\"\nr[suffix=\"END\"i]: /[a-z]*/",
+      "input": "abcENDz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/0/True/1",
+      "grammar": "start: r \"z\"\nr[suffix=\"END\"i]: /[a-z]*/",
+      "input": "abcendz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/0/True/2",
+      "grammar": "start: r \"z\"\nr[suffix=\"END\"i]: /[a-z]*/",
+      "input": "abcEnDz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/0/False/0",
+      "grammar": "start: r \"z\"\nr[suffix=\"END\"i]: /[a-z]*/",
+      "input": "abcENz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/0/False/1",
+      "grammar": "start: r \"z\"\nr[suffix=\"END\"i]: /[a-z]*/",
+      "input": "abcENDENDz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/1/True/0",
+      "grammar": "start: r \"z\"\nr[stop=\"END\"i]: /[a-z]*/",
+      "input": "abcENDz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/1/True/1",
+      "grammar": "start: r \"z\"\nr[stop=\"END\"i]: /[a-z]*/",
+      "input": "abcendz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/1/True/2",
+      "grammar": "start: r \"z\"\nr[stop=\"END\"i]: /[a-z]*/",
+      "input": "abcEnDz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/1/False/0",
+      "grammar": "start: r \"z\"\nr[stop=\"END\"i]: /[a-z]*/",
+      "input": "abcENz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_case_insensitive_string_marker/1/False/1",
+      "grammar": "start: r \"z\"\nr[stop=\"END\"i]: /[a-z]*/",
+      "input": "abcENDENDz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/0/True/0",
+      "grammar": "start: r \"z\"\nr[suffix=/X.Y/s]: /[a-z]*/",
+      "input": "abcX\nYz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/0/True/1",
+      "grammar": "start: r \"z\"\nr[suffix=/X.Y/s]: /[a-z]*/",
+      "input": "abcXaYz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/0/False/0",
+      "grammar": "start: r \"z\"\nr[suffix=/X.Y/s]: /[a-z]*/",
+      "input": "abcX\nZz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/0/False/1",
+      "grammar": "start: r \"z\"\nr[suffix=/X.Y/s]: /[a-z]*/",
+      "input": "abcXYz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/1/True/0",
+      "grammar": "start: r \"z\"\nr[stop=/X.Y/s]: /[a-z]*/",
+      "input": "abcX\nYz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/1/True/1",
+      "grammar": "start: r \"z\"\nr[stop=/X.Y/s]: /[a-z]*/",
+      "input": "abcXaYz",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/1/False/0",
+      "grammar": "start: r \"z\"\nr[stop=/X.Y/s]: /[a-z]*/",
+      "input": "abcX\nZz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_dotall_regex_marker/1/False/1",
+      "grammar": "start: r \"z\"\nr[stop=/X.Y/s]: /[a-z]*/",
+      "input": "abcXYz",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/0/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<a!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/0/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<ab!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/0/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/0/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<ab!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/0/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[suffix=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<a!b!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/1/True/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<a!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/1/True/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<ab!>",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/1/False/0",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/1/False/1",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<ab!!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_terminal_composition/1/False/2",
+      "grammar": "\n        start: \"<\" r \">\"\n        r[stop=\"!\"]: AB+\n        AB: \"a\" | \"b\"\n    ",
+      "input": "<a!b!>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/True/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "free",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/True/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "x<tool>abc</tool>y",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/True/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "partial <too",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/False/0",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/False/1",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>123</tool>",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_dynamic_fixed_string_stop_attribute/0/False/2",
+      "grammar": "\n        start: tool* tail\n        tail: TEXT\n        head[stop=\"<tool>\"]: TEXT\n        tool: head /[a-z]+/ \"</tool>\"\n        TEXT: /(\\n|.)*/\n    ",
+      "input": "<tool>abc",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/0/True/0",
+      "grammar": "start: \"<\" r \"b\"\nr[suffix=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "<a>b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/0/True/1",
+      "grammar": "start: \"<\" r \"b\"\nr[suffix=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "< a> b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/0/False/0",
+      "grammar": "start: \"<\" r \"b\"\nr[suffix=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "<a a>b",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/1/True/0",
+      "grammar": "start: \"<\" r \"b\"\nr[stop=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "<a>b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/1/True/1",
+      "grammar": "start: \"<\" r \"b\"\nr[stop=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "< a> b",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_suffix_stop_ignore_is_lexeme_scoped/1/False/0",
+      "grammar": "start: \"<\" r \"b\"\nr[stop=\">\"]: /[a-z]*/\n%ignore \" \"",
+      "input": "<a a>b",
+      "accepted": false
+    }
+  ]
+}

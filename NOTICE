@@ -1,0 +1,10 @@
+swift-tgrammar
+Copyright (c) 2026 Alessio Pollero
+
+This product is a pure Swift implementation of structured generation whose
+design, grammar semantics, EBNF dialect and test corpus follow XGrammar
+(https://github.com/mlc-ai/xgrammar), Copyright (c) 2024 by Contributors,
+licensed under the Apache License, Version 2.0.
+
+No XGrammar source code is compiled into this package; the behaviour is
+re-implemented in Swift and validated against a port of the XGrammar test suite.

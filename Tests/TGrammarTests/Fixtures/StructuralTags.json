@@ -1,0 +1,2105 @@
+{
+  "revision": "ca1acf28bf35b9ba9092800b69aebc7d4ce1f7a7",
+  "cases": [
+    {
+      "id": "test_const_string_format[0][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"Hello!\"}",
+      "input": "Hello!",
+      "accepted": true
+    },
+    {
+      "id": "test_const_string_format[1][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"Hello!\"}",
+      "input": "Hello",
+      "accepted": false
+    },
+    {
+      "id": "test_const_string_format[2][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"Hello!\"}",
+      "input": "Hello!!",
+      "accepted": false
+    },
+    {
+      "id": "test_const_string_format[3][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"Hello!\"}",
+      "input": "HELLO!",
+      "accepted": false
+    },
+    {
+      "id": "test_json_schema_format[0][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"a\": {\"type\": \"string\"}}}}",
+      "input": "{\"a\": \"hello\"}",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_format[1][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"a\": {\"type\": \"string\"}}}}",
+      "input": "{\"a\": 123}",
+      "accepted": false
+    },
+    {
+      "id": "test_json_schema_format[2][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"a\": {\"type\": \"string\"}}}}",
+      "input": "{\"b\": \"hello\"}",
+      "accepted": false
+    },
+    {
+      "id": "test_json_schema_format[3][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"a\": {\"type\": \"string\"}}}}",
+      "input": "invalid json",
+      "accepted": false
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[0][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[1][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[2][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[3][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "\n\t<parameter=name>Bob</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[4][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "<parameter=name>\"Bob&lt;\"</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_qwen_parameter_xml_format[5][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}}",
+      "input": "<parameter=name><!DOCTYPE html>\n<html lang=\"en\">\n  <body><h1>Hello</h1></body>\n</html></parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[0][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[1][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[2][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "<parameter=name>Bob</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[3][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "\n\t<parameter=name>Bob</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[4][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "<parameter=name>\"Bob&lt;\"</parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_qwen_xml_format[5][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"qwen_xml\"}",
+      "input": "<parameter=name><!DOCTYPE html>\n<html lang=\"en\">\n  <body><h1>Hello</h1></body>\n</html></parameter><parameter=age>100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_minimax_xml_format[0][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"minimax_xml\"}",
+      "input": "<parameter name=\"name\">Bob</parameter><parameter name=\"age\">\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_minimax_xml_format[1][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"minimax_xml\"}",
+      "input": "<parameter name=\"name\">Bob</parameter>\t\n<parameter name=\"age\">\t100\n</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_minimax_xml_format[2][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"minimax_xml\"}",
+      "input": "<parameter name=\"name\">Bob</parameter><parameter name=\"age\">100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_json_schema_style_minimax_xml_format[3][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"name\": {\"type\": \"string\"}, \"age\": {\"type\": \"integer\"}}, \"required\": [\"name\", \"age\"]}, \"style\": \"minimax_xml\"}",
+      "input": "<parameter name=\"name\"><!DOCTYPE html>\n<html lang=\"en\">\n  <body><h1>Hello</h1></body>\n</html></parameter><parameter name=\"age\">100</parameter>",
+      "accepted": true
+    },
+    {
+      "id": "test_ebnf_grammar_format[0][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"root ::= \\\"Hello!\\\" number\\n            number ::= [0-9] | [0-9] number\"}",
+      "input": "Hello!12345",
+      "accepted": true
+    },
+    {
+      "id": "test_ebnf_grammar_format[1][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"root ::= \\\"Hello!\\\" number\\n            number ::= [0-9] | [0-9] number\"}",
+      "input": "Hello!0",
+      "accepted": true
+    },
+    {
+      "id": "test_ebnf_grammar_format[2][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"root ::= \\\"Hello!\\\" number\\n            number ::= [0-9] | [0-9] number\"}",
+      "input": "Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_ebnf_grammar_format[3][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"root ::= \\\"Hello!\\\" number\\n            number ::= [0-9] | [0-9] number\"}",
+      "input": "Hello!123a",
+      "accepted": false
+    },
+    {
+      "id": "test_ebnf_grammar_format[4][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"root ::= \\\"Hello!\\\" number\\n            number ::= [0-9] | [0-9] number\"}",
+      "input": "Hi!123",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_grammar_format[0][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"start: \\\"Hello!\\\" number\\nnumber: /[0-9]+/\", \"syntax\": \"lark\"}",
+      "input": "Hello!12345",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_grammar_format[1][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"start: \\\"Hello!\\\" number\\nnumber: /[0-9]+/\", \"syntax\": \"lark\"}",
+      "input": "Hello!0",
+      "accepted": true
+    },
+    {
+      "id": "test_lark_grammar_format[2][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"start: \\\"Hello!\\\" number\\nnumber: /[0-9]+/\", \"syntax\": \"lark\"}",
+      "input": "Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_grammar_format[3][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"start: \\\"Hello!\\\" number\\nnumber: /[0-9]+/\", \"syntax\": \"lark\"}",
+      "input": "Hello!123a",
+      "accepted": false
+    },
+    {
+      "id": "test_lark_grammar_format[4][0]",
+      "format": "{\"type\": \"grammar\", \"grammar\": \"start: \\\"Hello!\\\" number\\nnumber: /[0-9]+/\", \"syntax\": \"lark\"}",
+      "input": "Hi!123",
+      "accepted": false
+    },
+    {
+      "id": "test_regex_format[0][0]",
+      "format": "{\"type\": \"regex\", \"pattern\": \"Hello![0-9]+\"}",
+      "input": "Hello!12345",
+      "accepted": true
+    },
+    {
+      "id": "test_regex_format[1][0]",
+      "format": "{\"type\": \"regex\", \"pattern\": \"Hello![0-9]+\"}",
+      "input": "Hello!0",
+      "accepted": true
+    },
+    {
+      "id": "test_regex_format[2][0]",
+      "format": "{\"type\": \"regex\", \"pattern\": \"Hello![0-9]+\"}",
+      "input": "Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_regex_format[3][0]",
+      "format": "{\"type\": \"regex\", \"pattern\": \"Hello![0-9]+\"}",
+      "input": "Hello!123a",
+      "accepted": false
+    },
+    {
+      "id": "test_regex_format[4][0]",
+      "format": "{\"type\": \"regex\", \"pattern\": \"Hello![0-9]+\"}",
+      "input": "Hi!123",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[0][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123",
+      "accepted": true
+    },
+    {
+      "id": "test_sequence_format[1][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[2][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[3][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "123Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[4][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "???",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[5][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123+",
+      "accepted": true
+    },
+    {
+      "id": "test_sequence_format[6][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123-",
+      "accepted": true
+    },
+    {
+      "id": "test_sequence_format[7][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123!",
+      "accepted": false
+    },
+    {
+      "id": "test_sequence_format[8][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123s",
+      "accepted": true
+    },
+    {
+      "id": "test_sequence_format[9][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123+s",
+      "accepted": true
+    },
+    {
+      "id": "test_sequence_format[10][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, {\"type\": \"grammar\", \"grammar\": \"root ::= \\\"\\\" | [-+*/]\"}, {\"type\": \"regex\", \"pattern\": \"[simple]?\"}]}",
+      "input": "Hello!123q",
+      "accepted": false
+    },
+    {
+      "id": "test_or_format[0][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}]}",
+      "input": "Hello!",
+      "accepted": true
+    },
+    {
+      "id": "test_or_format[1][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}]}",
+      "input": "123",
+      "accepted": true
+    },
+    {
+      "id": "test_or_format[2][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}]}",
+      "input": "Hello!Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_or_format[3][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}]}",
+      "input": "123Hello!",
+      "accepted": false
+    },
+    {
+      "id": "test_or_format[4][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"Hello!\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}]}",
+      "input": "???",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[0][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}",
+      "input": "BEG12345END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[1][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}",
+      "input": "BEG123456END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[2][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}",
+      "input": "BEG1234567END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[3][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}",
+      "input": "BEG???END",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[4][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}",
+      "input": "BEG12345ENDEND",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[5][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"grammar\", \"grammar\": \"root ::= [+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG12345END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[6][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"grammar\", \"grammar\": \"root ::= [+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG123456END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[7][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"grammar\", \"grammar\": \"root ::= [+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG1234567END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[8][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"grammar\", \"grammar\": \"root ::= [+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG???END",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[9][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"grammar\", \"grammar\": \"root ::= [+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG12345ENDEND",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[10][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"regex\", \"pattern\": \"[+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG12345END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[11][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"regex\", \"pattern\": \"[+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG123456END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[12][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"regex\", \"pattern\": \"[+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG1234567END",
+      "accepted": true
+    },
+    {
+      "id": "test_tag_format[13][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"regex\", \"pattern\": \"[+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG???END",
+      "accepted": false
+    },
+    {
+      "id": "test_tag_format[14][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"regex\", \"pattern\": \"[+\\\\-]?[1-9][0-9]*\"}, \"end\": \"END\"}",
+      "input": "BEG12345ENDEND",
+      "accepted": false
+    },
+    {
+      "id": "test_any_text_format[0][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"any_text\"}, \"end\": \"END\"}",
+      "input": "BEGHello!END",
+      "accepted": true
+    },
+    {
+      "id": "test_any_text_format[1][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"any_text\"}, \"end\": \"END\"}",
+      "input": "BEGENENNDENEND",
+      "accepted": true
+    },
+    {
+      "id": "test_any_text_format[2][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"any_text\"}, \"end\": \"END\"}",
+      "input": "BEGENENDEN",
+      "accepted": false
+    },
+    {
+      "id": "test_any_text_format[3][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"any_text\"}, \"end\": \"END\"}",
+      "input": "BEGBEGENDEND",
+      "accepted": false
+    },
+    {
+      "id": "test_any_text_only_format[0][0]",
+      "format": "{\"type\": \"any_text\"}",
+      "input": "ABCDEF",
+      "accepted": true
+    },
+    {
+      "id": "test_any_text_only_format[1][0]",
+      "format": "{\"type\": \"any_text\"}",
+      "input": "123456",
+      "accepted": true
+    },
+    {
+      "id": "test_any_text_only_format[2][0]",
+      "format": "{\"type\": \"any_text\"}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_triggered_tags_corner_case[0][0]",
+      "format": "{\"type\": \"triggered_tags\", \"triggers\": [\"<start>\"], \"tags\": [{\"begin\": \"<start>\", \"content\": {\"type\": \"const_string\", \"value\": \"[TEXT]\"}, \"end\": \"<end>\"}]}",
+      "input": "<start>[TEXT]<end>[TEXT]<start>[TEXT]<end>[TEXT]",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[0][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[1][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "x",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[2][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[3][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[4][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "B",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[5][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG42END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[6][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "42",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[7][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "-3.14",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[8][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[9][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[10][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[11][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[12][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[13][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[14][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[15][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[16][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[17][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "B",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[18][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG42END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[19][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "42",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[20][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "-3.14",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[21][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[22][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[23][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[24][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[25][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[26][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[27][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[28][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[29][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "A",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[30][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "B",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[31][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG42END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[32][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "42",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[33][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "-3.14",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[34][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[35][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[36][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[37][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[38][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[39][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[40][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[41][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[42][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[43][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "B",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[44][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG42END",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[45][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "42",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[46][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "-3.14",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[47][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[48][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[49][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[50][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[51][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[52][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[53][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[54][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[55][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[56][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "B",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[57][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "BEG42END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[58][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "42",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[59][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "-3.14",
+      "accepted": true
+    },
+    {
+      "id": "test_optional_format[60][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[61][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[62][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[63][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_optional_format[64][0]",
+      "format": "{\"type\": \"optional\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[0][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[1][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "x",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[2][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xx",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[3][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xxx",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[4][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[5][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[6][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "ababab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[7][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[8][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[9][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[10][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[11][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[12][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "y",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[13][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "yy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[14][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "yyy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[15][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[16][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[17][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[18][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[19][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[20][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[21][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "abab",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[22][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "ababab",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[23][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[24][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[25][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[26][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[27][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[28][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "y",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[29][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "yy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[30][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "yyy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[31][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[32][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[33][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[34][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[35][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[36][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[37][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[38][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "ababab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[39][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "A",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[40][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "AB",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[41][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BAB",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[42][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[43][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[44][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "y",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[45][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "yy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[46][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "yyy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[47][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[48][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[49][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[50][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[51][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[52][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[53][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[54][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "ababab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[55][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[56][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[57][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[58][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG1END",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[59][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[60][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "y",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[61][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "yy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[62][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "yyy",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[63][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[64][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[65][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[66][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[67][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[68][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[69][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[70][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "ababab",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[71][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[72][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "AB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[73][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[74][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[75][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_plus_format[76][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "y",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[77][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "yy",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[78][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "yyy",
+      "accepted": true
+    },
+    {
+      "id": "test_plus_format[79][0]",
+      "format": "{\"type\": \"plus\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"y\"}}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[0][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[1][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "x",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[2][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xx",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[3][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xxx",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[4][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[5][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[6][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[7][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[8][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[9][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[10][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "z",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[11][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "zz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[12][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "zzz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[13][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "xz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[14][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"const_string\", \"value\": \"x\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[15][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[16][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[17][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[18][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[19][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "ab",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[20][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "abab",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[21][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[22][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[23][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[24][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[25][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "z",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[26][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "zz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[27][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "zzz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[28][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "xz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[29][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"a\"}, {\"type\": \"const_string\", \"value\": \"b\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[30][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[31][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[32][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[33][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[34][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[35][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[36][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "A",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[37][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BAB",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[38][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[39][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[40][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "z",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[41][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "zz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[42][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "zzz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[43][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "xz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[44][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"A\"}, {\"type\": \"const_string\", \"value\": \"B\"}]}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[45][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[46][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[47][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[48][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[49][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[50][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[51][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[52][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[53][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG1END",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[54][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[55][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "z",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[56][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "zz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[57][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "zzz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[58][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "xz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[59][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"tag\", \"begin\": \"BEG\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"number\"}}, \"end\": \"END\"}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[60][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[61][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "x",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[62][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "xx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[63][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "xxx",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[64][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "ab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[65][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "abab",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[66][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "A",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[67][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "BAB",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[68][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "BEG1END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[69][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "BEG1ENDBEG2END",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[70][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "z",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[71][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "zz",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[72][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "zzz",
+      "accepted": true
+    },
+    {
+      "id": "test_star_format[73][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "xz",
+      "accepted": false
+    },
+    {
+      "id": "test_star_format[74][0]",
+      "format": "{\"type\": \"star\", \"content\": {\"type\": \"optional\", \"content\": {\"type\": \"const_string\", \"value\": \"z\"}}}",
+      "input": "invalid",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[0][0]",
+      "format": "{\"type\": \"triggered_tags\", \"triggers\": [\"{\\\"name\\\":\"], \"tags\": [{\"begin\": \"{\\\"name\\\": \\\"func1\\\", \\\"parameters\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\"}, {\"begin\": \"{\\\"name\\\": \\\"func2\\\", \\\"parameters\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\"}]}",
+      "input": "<text>{\"name\": \"func2\", \"parameters\": {\"arg\": 10}}<text>{\"name\": \"func1\", \"parameters\": {\"arg\": \"123\"}}<text>",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[0][1]",
+      "format": "{\"type\": \"triggered_tags\", \"triggers\": [\"{\\\"name\\\":\"], \"tags\": [{\"begin\": \"{\\\"name\\\": \\\"func1\\\", \\\"parameters\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\"}, {\"begin\": \"{\\\"name\\\": \\\"func2\\\", \\\"parameters\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\"}]}",
+      "input": "<text>{\"name\": \"func3\", \"parameters\": {\"arg\": 10}}",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[1][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}]}]}",
+      "input": "<think>[any_text]</think>[any_text]<function=func2>{\"arg\": 10}</function>[any_text]<function=func1>{\"arg\": 10}</function>[any_text]",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[1][1]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}]}]}",
+      "input": "[any_text]<function=func2>{\"arg\": 10}</function>[any_text]<function=func1>{\"arg\": 10}</function>[any_text]",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[1][2]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}]}]}",
+      "input": "<think>[any_text]</think>[any_text]<function=func3>{\"arg\": 10}",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[2][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}], \"stop_after_first\": true, \"at_least_one\": true}]}",
+      "input": "<think>[any_text]</think><function=func2>{\"arg\": 10}</function>",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[2][1]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}], \"stop_after_first\": true, \"at_least_one\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]<function=func2>{\"arg\": 10}</function>",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[2][2]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<function=\"], \"tags\": [{\"begin\": \"<function=func1>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}, {\"begin\": \"<function=func2>\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"</function>\"}], \"stop_after_first\": true, \"at_least_one\": true}]}",
+      "input": "<think>[any_text]</think><function=func2>{\"arg\": 10}</function>[any_text]",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[3][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<｜tool▁calls▁begin｜>\"], \"tags\": [{\"begin\": \"<｜tool▁calls▁begin｜>\", \"end\": \"<｜tool▁calls▁end｜>\", \"content\": {\"type\": \"tags_with_separator\", \"separator\": \"\\n\", \"tags\": [{\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}, {\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}]}}], \"stop_after_first\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[3][1]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<｜tool▁calls▁begin｜>\"], \"tags\": [{\"begin\": \"<｜tool▁calls▁begin｜>\", \"end\": \"<｜tool▁calls▁end｜>\", \"content\": {\"type\": \"tags_with_separator\", \"separator\": \"\\n\", \"tags\": [{\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}, {\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}]}}], \"stop_after_first\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]<｜tool▁calls▁begin｜><｜tool▁calls▁end｜>",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[3][2]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<｜tool▁calls▁begin｜>\"], \"tags\": [{\"begin\": \"<｜tool▁calls▁begin｜>\", \"end\": \"<｜tool▁calls▁end｜>\", \"content\": {\"type\": \"tags_with_separator\", \"separator\": \"\\n\", \"tags\": [{\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}, {\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}]}}], \"stop_after_first\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\n```json\n{\"arg\": 10}\n```<｜tool▁call▁end｜>\n<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\n```json\n{\"arg\": 10}\n```<｜tool▁call▁end｜><｜tool▁calls▁end｜>",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[3][3]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<｜tool▁calls▁begin｜>\"], \"tags\": [{\"begin\": \"<｜tool▁calls▁begin｜>\", \"end\": \"<｜tool▁calls▁end｜>\", \"content\": {\"type\": \"tags_with_separator\", \"separator\": \"\\n\", \"tags\": [{\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}, {\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}]}}], \"stop_after_first\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_3\n```json\n{\"arg\": 10}\n```<｜tool▁call▁end｜><｜tool▁calls▁end｜>",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[3][4]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"tag\", \"begin\": \"<think>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"</think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<｜tool▁calls▁begin｜>\"], \"tags\": [{\"begin\": \"<｜tool▁calls▁begin｜>\", \"end\": \"<｜tool▁calls▁end｜>\", \"content\": {\"type\": \"tags_with_separator\", \"separator\": \"\\n\", \"tags\": [{\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_1\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}, {\"begin\": \"<｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\\n```json\\n\", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"\\n```<｜tool▁call▁end｜>\"}]}}], \"stop_after_first\": true}]}",
+      "input": "<think>[any_text]</think>[any_text]<｜tool▁calls▁begin｜><｜tool▁call▁begin｜>function<｜tool▁sep｜>function_name_2\n```json\n{\"arg\": 10}\n```<｜tool▁call▁end｜><｜tool▁calls▁end｜>[any_text]",
+      "accepted": false
+    },
+    {
+      "id": "test_compound_format[4][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"<think></think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<tool_call>\"], \"tags\": [{\"begin\": \"<tool_call>\\n{\\\"name\\\": \\\"func1\\\", \\\"arguments\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\\n</tool_call>\"}, {\"begin\": \"<tool_call>\\n{\\\"name\\\": \\\"func2\\\", \\\"arguments\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\\n</tool_call>\"}]}]}",
+      "input": "<think></think>[any_text]<tool_call>\n{\"name\": \"func1\", \"arguments\": {\"arg\": 10}}\n</tool_call>[any_text]",
+      "accepted": true
+    },
+    {
+      "id": "test_compound_format[4][1]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"<think></think>\"}, {\"type\": \"triggered_tags\", \"triggers\": [\"<tool_call>\"], \"tags\": [{\"begin\": \"<tool_call>\\n{\\\"name\\\": \\\"func1\\\", \\\"arguments\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\\n</tool_call>\"}, {\"begin\": \"<tool_call>\\n{\\\"name\\\": \\\"func2\\\", \\\"arguments\\\": \", \"content\": {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\"}}, \"end\": \"}\\n</tool_call>\"}]}]}",
+      "input": "<think>abcd</think>[any_text]<tool_call>\n{\"name\": \"func1\", \"arguments\": {\"arg\": 10}}\n</tool_call>[any_text]",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[0][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, \"end\": \"<end>\"}",
+      "input": "<start>[TEXT]<end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[0][1]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, \"end\": \"<end>\"}",
+      "input": "<start>[TEXT]abcde<end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[0][2]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, \"end\": \"<end>\"}",
+      "input": "<start>[TEXT]abcde",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[0][3]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><end>",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[1][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><start2>[TEXT]<end2><end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][1]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><start2><end2><end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][2]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start>[TEXT2]abc<end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][3]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><start3>abc<end3><end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][4]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><start3><end3><end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][5]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start><end>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[1][6]",
+      "format": "{\"type\": \"tag\", \"begin\": \"<start>\", \"content\": {\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\"}]}, \"end\": \"<end>\"}",
+      "input": "<start>[TEXT2]",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start2>abc<end2>abcdef",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][1]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "[TEXT]abc",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][2]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "[TEXT]",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][3]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start3>abc<end3>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][4]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start3>abc<end3><sep><start3>def<end3>",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][5]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "[TEXT2]def",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][6]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "[TEXT2]",
+      "accepted": true
+    },
+    {
+      "id": "test_end_string_detector[2][7]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start>abc<end>",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][8]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start2>abc",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][9]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "abc<end2>",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][10]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start3>abc",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][11]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "<start3>abc<end3><start3>def<end3>",
+      "accepted": false
+    },
+    {
+      "id": "test_end_string_detector[2][12]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"triggered_tags\", \"triggers\": [\"<start2\"], \"tags\": [{\"begin\": \"<start2>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end2>\"}], \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT]\"}, {\"type\": \"any_text\"}]}, {\"type\": \"or\", \"elements\": [{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"<start3>\", \"content\": {\"type\": \"any_text\"}, \"end\": \"<end3>\"}], \"separator\": \"<sep>\", \"at_least_one\": true}, {\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"[TEXT2]\"}, {\"type\": \"any_text\"}]}]}]}",
+      "input": "random text",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[0][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"你好\"}",
+      "input": "你好",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[1][0]",
+      "format": "{\"type\": \"const_string\", \"value\": \"你好\"}",
+      "input": "hello",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[2][0]",
+      "format": "{\"type\": \"any_text\"}",
+      "input": "😊",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[3][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"开始\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"string\"}}, {\"type\": \"const_string\", \"value\": \"结束\"}]}",
+      "input": "开始\"中间\"结束",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[4][0]",
+      "format": "{\"type\": \"sequence\", \"elements\": [{\"type\": \"const_string\", \"value\": \"开始\"}, {\"type\": \"json_schema\", \"json_schema\": {\"type\": \"string\"}}, {\"type\": \"const_string\", \"value\": \"结束\"}]}",
+      "input": "开始中间内容",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[5][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"标签开始\", \"content\": {\"type\": \"any_text\"}, \"end\": \"标签结束\"}",
+      "input": "标签开始一些内容标签结束",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[6][0]",
+      "format": "{\"type\": \"tag\", \"begin\": \"标签开始\", \"content\": {\"type\": \"any_text\"}, \"end\": \"标签结束\"}",
+      "input": "标签开始一些内容",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[7][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"选项一\"}, {\"type\": \"const_string\", \"value\": \"选项二\"}]}",
+      "input": "选项一",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[8][0]",
+      "format": "{\"type\": \"or\", \"elements\": [{\"type\": \"const_string\", \"value\": \"选项一\"}, {\"type\": \"const_string\", \"value\": \"选项二\"}]}",
+      "input": "选项三",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[9][0]",
+      "format": "{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"项开始\", \"content\": {\"type\": \"any_text\"}, \"end\": \"项结束\"}], \"separator\": \"分隔符\"}",
+      "input": "项开始内容1项结束分隔符项开始内容2项结束",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[10][0]",
+      "format": "{\"type\": \"tags_with_separator\", \"tags\": [{\"begin\": \"项开始\", \"content\": {\"type\": \"any_text\"}, \"end\": \"项结束\"}], \"separator\": \"分隔符\"}",
+      "input": "项开始内容1项结束项开始内容2项结束",
+      "accepted": false
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[11][0]",
+      "format": "{\"type\": \"json_schema\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"字段\": {\"type\": \"string\"}}, \"required\": [\"字段\"], \"additionalProperties\": false}}",
+      "input": "{\"字段\": \"值\"}",
+      "accepted": true
+    },
+    {
+      "id": "test_basic_structural_tag_utf8[12][0]",
+      "format": "{\"type\": \"qwen_xml_parameter\", \"json_schema\": {\"type\": \"object\", \"properties\": {\"参数\": {\"type\": \"string\"}}, \"required\": [\"参数\"], \"additionalProperties\": false}}",
+      "input": "<parameter=参数>值</parameter>",
+      "accepted": true
+    }
+  ]
+}
