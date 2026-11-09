@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Build & test (macOS, Swift 6.2)
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain and runtime
+        run: |
+          swift --version
+          sw_vers
+
+      - name: Build (warnings are errors)
+        run: swift build -Xswiftc -warnings-as-errors
+
+      - name: Test
+        run: swift test --parallel
+
+      - name: Test optimized code
+        run: swift test -c release --parallel -Xswiftc -warnings-as-errors
+
+  ios:
+    name: Build (iOS)
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cross-compile for the iOS 18 simulator (deployment floor)
+        run: |
+          swift build --target TGrammar \
+            --sdk "$(xcrun --sdk iphonesimulator --show-sdk-path)" \
+            --triple arm64-apple-ios18.0-simulator \
+            -Xswiftc -warnings-as-errors
